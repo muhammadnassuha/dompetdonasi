@@ -1,0 +1,84 @@
+/*HPP*/
+@media (max-width: 767.98px) {
+  .desktop .navbar-desktop {
+    display: none;
+  }
+
+  #sidebar-hp .user2 img {
+    margin-top: 20px;
+  }
+
+  .data-profil label {
+    font-size: 13px;
+  }
+
+  .data-profil .form-control {
+    font-size: 13px;
+  }
+
+  .btn-save {
+    width: 100% !important;
+  }
+
+  .btn-save:hover {
+    border-radius: 25px;
+    transition: .7s;
+  }
+
+  .breadcrumb-item {
+    font-size: 12px;
+  }
+
+  .campaign-user .card-title, .campaign-user .card-terkumpul {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .hal2 .container {
+    padding-left: 0 !important;
+  }
+
+  .table-bordered tr{
+    font-size: 13px;
+  }
+
+  .table-bordered td {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .pagination {
+    width: 100%;
+  }
+
+  .pagination a {
+    font-size: 12px;
+  } 
+
+  #sidebar-desktop .navbar-expand {
+    transition: 0.4s;
+    z-index: 9999;
+    width: 200px;
+  }
+
+  #sidebar-desktop .active-cont {
+    margin-left: 0;
+  }
+
+  #sidebar-desktop .nav-link {
+    font-size: 1em;
+  }
+
+}
+
+/*DESKTOP*/
+@media (min-width: 992px) {
+  .navbar-hp {
+    display: none;
+  }  
+
+  #menu-btn-kembali {
+    display: none;
+  }
+
+}

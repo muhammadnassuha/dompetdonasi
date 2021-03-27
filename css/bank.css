@@ -1,0 +1,59 @@
+body{
+    background-color: #eee;
+}
+
+
+.donasi {
+    font-weight: bold;
+}
+
+.tombol-home {
+    text-align: center;
+    padding: 12px 0;
+}
+
+.tombol-home a {
+    margin: 10px 5px 0;
+}
+
+a.btn.btn-beranda {
+    color: #53a946;
+    border-color:#53a946;
+    border-width:1px;
+    width:100%;
+    padding:8px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+a.btn.btn-beranda:hover {
+    background-color: #53a946;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+    color: white;
+    border-radius: 8px;
+    transition: .9s;
+}
+
+a.btn.btn-konfirmasi{
+    background-color: #db3143;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+a.btn.btn-konfirmasi:hover{
+    background-color: #9d1725;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+    font-weight: bold;
+    color: white;
+    border-radius: 8px;
+}
+
+
+.title_donasi{
+    font-size:12px;
+}

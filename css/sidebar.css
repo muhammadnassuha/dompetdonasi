@@ -1,0 +1,119 @@
+/*desktop*/
+
+#sidebar-desktop .navbar-expand {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #55A746;
+    transition: 0.4s;
+}
+
+#sidebar-desktop .nav-link {
+    font-size: 1.25em;
+}
+
+#sidebar-desktop .active .nav-link {
+    background-color: #ffffff26;
+    padding-left: 20px;
+}
+
+#sidebar-desktop .nav-link:active,
+#sidebar-desktop .nav-link:focus,
+#sidebar-desktop .nav-link:hover {
+    background-color: #ffffff26;
+}
+
+#sidebar-desktop .my-container {
+    transition: 0.4s;
+}
+
+
+/* for navbar */
+
+#sidebar-desktop .active-nav {
+    margin-left: 0;
+}
+
+
+/* for main section */
+
+#sidebar-desktop .active-cont {
+    margin-left: 250px;
+}
+
+#menu-btn {
+    background-color: #55A746;
+    color: #fff;
+}
+
+#menu-btn:focus {
+    box-shadow: 0 0 0 0.25rem #7952b344;
+}
+
+/*hp*/
+
+#sidebar-hp .navbar-expand {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #55A746;
+    transition: 0.4s;
+    z-index: 99
+}
+
+#sidebar-hp .nav-link {
+    font-size: 1em;
+}
+
+#sidebar-hp .active .nav-link {
+    background-color: #ffffff26;
+    padding-left: 20px;
+}
+
+#sidebar-hp .nav-link:active,
+#sidebar-hp .nav-link:focus,
+#sidebar-hp .nav-link:hover {
+    background-color: #ffffff26;
+}
+
+#sidebar-hp .my-container-hp {
+    transition: 0.4s;
+}
+
+#sidebar-hp .my-container-hp h1{
+    font-size: 1.2em;
+}
+
+
+/* for navbar */
+
+#sidebar-hp .active-nav {
+    margin-left: 0;
+}
+
+
+/* for main section */
+
+#sidebar-hp .active-cont {
+    margin-left: 250px;
+}
+
+#menu-btn-hp {
+    background-color: #55A746;
+    color: #fff;
+    margin-top: -10px !important;
+}
+
+#menu-btn-hp:focus,
+#menu-btn-kembali:focus {
+    box-shadow: 0 0 0 0.25rem #7952b344;
+}
+
+#menu-btn-kembali {
+    background-color: #146a25;
+    color: #fff;
+    bottom: 0;
+    font-size: 12px;
+}

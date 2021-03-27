@@ -1,0 +1,198 @@
+/*HPP*/
+@media (max-width: 767.98px) {
+  .desktop {
+    display: none;
+  }
+
+  	#cke_40 {
+        display: none;
+      }
+
+    #cke_41 {
+        display: none;
+      }
+
+    #cke_43 {
+        display: none;
+      }
+  	#cke_44 {
+        display: none;
+      }
+
+    #cke_48 {
+        display: none;
+      }
+  
+  .form-control, #basic-addon3 {
+  	font-size: 13px !important;
+  }
+  
+}
+
+/*DESKTOP*/
+@media (min-width: 992px) {
+	.hp {
+		display: none;
+	}  
+}
+
+body{
+    background-color:#f7f7f7;
+}
+.navbar-expand-lg{
+	background-color: white;
+	padding: 15px;
+}
+
+a.navbar-brand{
+	text-decoration: none;
+	color: #55A746;
+	font-weight: bold;
+}
+
+a.navbar-brand:hover{
+	text-decoration: none;
+}
+
+a.nav-link{
+	color: #575157;
+	margin-left: 20px;
+	border-radius: 8px;
+	transition: .4s;
+}
+
+a.nav-link:hover{
+	background-color: #e3e3e3;
+	color: #73826e;
+	border-radius: 8px;
+}
+  
+    .donasi {
+    	font-weight: bold;
+    }
+
+    .daftar {
+    	margin-top: 10px;
+    }
+
+    .navbar-brand img {
+        margin-top: 10px;
+    }
+
+	.login .row {
+		margin-top: 100px;
+		justify-content: center;
+	}
+
+
+	.daftar .row {
+		margin-top: 50px;
+	}
+
+	.box-white {
+		background-color: #FFFFFF;
+    	border-radius:15px;
+    	margin-bottom:25px;
+    	padding:25px;
+	}
+	
+	.box-white-hp {
+		background-color: #FFFFFF;
+    	border-radius:15px;
+    	margin-bottom:120px;
+	}
+
+	.btn-dana {
+		margin-top: 20px;
+	}
+
+	form {
+		margin-top: 15px;
+		font-size:14px;
+	}
+
+
+	input {
+		padding: 5px;
+	}
+
+	.form-control {
+		font-size: 17px;
+	}
+
+	.font-weight-bold {
+		font-size: 15px;
+	}
+
+	.tombol {
+		padding-right: 40px;
+		padding-left: 40px;
+		padding-bottom: 50px;
+	}
+
+	.tombol .row {
+		margin-top: 10px;
+	}
+
+	.text-center {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-weight: bold;
+		font-size: 18px;
+	}
+	
+	
+	button.btn-daftar_akun{
+	background-color: #369b7e;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	width: 100%;
+	border-radius: 20px;
+	padding: 12px;
+	margin-top: 10px;
+}
+
+button.btn-daftar_akun:hover{
+	background-color: #297761;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	width: 100%;
+	border-radius: 20px;
+	padding: 12px;
+}
+
+.footer-fix-hp{
+                  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+                  background-color:white;
+                  padding:8px;
+                  margin-bottom:-8px;
+              }
+              
+              p.text-footer-fixed-hp{
+                  text-align:center;
+                  text-decoration:none;
+                  color:#8f8f8f;
+              }
+              
+              a.link-text-footer{
+                  text-decoration:none;
+                  color:#8f8f8f;
+                  font-size:14px;
+              }
+
+.navbar-expand-lg{
+	background-color: white;
+	padding: 15px;
+}
+
+a.navbar-brand{
+	text-decoration: none;
+	color: #393939;
+	font-weight: bold;
+}
+
+a.navbar-brand:hover{
+	text-decoration: none;
+}

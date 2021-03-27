@@ -1,0 +1,65 @@
+.table-pencairan tr td,.table-pencairan tr th {
+	padding: 20px;
+}
+
+.table-pencairan .t_donasi td,.table-pencairan .t_donasi th {
+	border-bottom: 1px solid black;
+}
+
+.cs-whatsapp {
+	text-align: center;
+}
+
+.btn-whatsapp {
+	margin: 30px 0;
+	font-weight: bold;
+	font-size: 1.07em;
+	background-color: #25d366;
+	color: white;
+}
+
+.btn-whatsapp:hover {
+	color: white;
+	transform: scale(1.02);
+	border-radius: 25px;
+	transition: 1s;
+}
+
+/*HPP*/
+@media (max-width: 767.98px) {
+	.table-pencairan tr td,.table-pencairan tr th {
+		padding: 5px;
+	}
+
+	.table td, table th {
+		font-size: 13px;
+	}
+
+	.data-profil p {
+		font-size: 13px;
+	}
+
+	.data-profil a {
+		font-size: 13px;
+	}
+
+	.btn-whatsapp {
+		margin: 10px 0;
+		font-size: 1em;
+	}
+
+	.btn-whatsapp:hover {
+		color: white;
+		transform: scale(1.02);
+		border-radius: 25px;
+		transition: 1s;
+	}
+
+
+}
+
+/*DESKTOP*/
+@media (min-width: 992px) {
+
+
+}

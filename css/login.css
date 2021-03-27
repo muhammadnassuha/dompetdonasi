@@ -1,0 +1,185 @@
+
+/*HPP*/
+@media (max-width: 767.98px) {
+  .desktop {
+    display: none;
+  }
+  
+}
+
+/*DESKTOP*/
+@media (min-width: 992px) {
+	.hp {
+		display: none;
+	}  
+}
+
+body h1, h2, h3, h4, h5, p{
+	font-family: 'Roboto', sans-serif;
+
+}
+
+h1{
+	font-weight: bold;
+}
+
+.dekstop{
+	background-color: #f7f7f7;
+}
+
+.navbar-expand-lg{
+	background-color: white;
+	padding: 15px;
+}
+
+a.navbar-brand{
+	text-decoration: none;
+	color: #55A746;
+	font-weight: bold;
+}
+
+a.navbar-brand:hover{
+	text-decoration: none;
+}
+
+a.nav-link{
+	color: #575157;
+	margin-left: 20px;
+	border-radius: 8px;
+	transition: .4s;
+}
+
+a.nav-link:hover{
+	background-color: #e3e3e3;
+	color: #73826e;
+	border-radius: 8px;
+}
+
+a.masuk{
+	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	margin-right: 10px;
+	padding: 10px;
+	background-color: #55A746;
+	border-color:#55A746;
+	border-style:solid;
+	border-width:1px;
+}
+
+a.masuk:hover{
+	background-color: transparent;
+	color: #55A746;
+	transition: .4s;
+}
+
+a.daftar{
+	background-color: none;
+	border-radius: 8px;
+	text-decoration: none;
+	padding: 10px;
+	color: #55A746;
+	transition: .4s;
+	border-color:#55A746;
+	border-style:solid;
+	border-width:1px;
+}
+
+a.daftar:hover{
+	background-color: #55A746;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	color: white;
+	border-radius: 8px;
+	transition: .4s;
+	padding: 10px;
+	text-decoration: none;
+	padding: 10px;
+}
+
+
+.field-icon {
+  float: right;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.fa-eye {
+	font-size: 1.2rem;
+}
+
+.login{
+	margin-top: 100px;
+}
+
+.card-login{
+	background-color: white;
+	padding: 60px;
+	border-radius:10px;
+}
+
+.card-login-hp{
+	background-color: white;
+	padding: 40px;
+	border-radius:10px;
+	margin-top:40px;
+}
+
+.input-group .input-group-prepend .input-group-text{
+height: 38px;
+color: #7595AA;
+font-size: 14px;
+background: #fff;
+border: none;
+}
+
+.form-control{
+	border: none;
+}
+
+h4.text-header{
+	text-align: center;
+	color: #55A746;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+p.text-header-hp{
+	text-align: center;
+	color: #0b844b;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+
+.btn-masuk{
+	background-color: #55A746;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	width: 100%;
+	border-radius: 20px;
+	padding: 12px;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.btn-masuk:hover{
+	background-color: #297761;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	width: 100%;
+	border-radius: 20px;
+	padding: 12px;
+	transition: .7s;
+}
+
+.register{
+	text-decoration: none;
+	color: #55A746;
+}
+
+.register:hover{
+	color: #297761;
+}

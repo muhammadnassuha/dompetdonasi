@@ -1,0 +1,268 @@
+/*HPP*/
+@media (max-width: 767.98px) {
+  .desktop {
+    display: none;
+  }
+  
+}
+
+/*DESKTOP*/
+@media (min-width: 992px) {
+	.hp {
+		display: none;
+	}  
+}
+
+body{
+    background-color:#f7f7f7;;
+}
+
+ h1 h2 h3 h4 p{
+ 	font-family: 'Roboto', sans-serif;
+ }
+
+.navbar-expand-lg{
+	background-color:white;;
+	padding: 15px;
+	font-weight: bold;
+}
+
+a.navbar-brand{
+	text-decoration: none;
+	color: #55A746;
+	font-weight: bold;
+}
+
+a.navbar-brand:hover{
+	text-decoration: none;
+}
+
+a.nav-link{
+	color: #575157;
+	margin-left: 10px;
+	border-radius: 8px;
+	transition: .4s;
+}
+
+a.nav-link:hover{
+	background-color: #e3e3e3;
+	color: #73826e;
+	border-radius: 8px;
+	padding-left: 10px !important;
+}
+
+a.masuk{
+	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	margin-right: 10px;
+	padding: 10px;
+	background-color: #55A746;
+	border-color:#55A746;
+	border-style:solid;
+	border-width:1px;
+}
+
+a.masuk:hover{
+	background-color: transparent;
+	color: #55A746;
+	transition: .4s;
+}
+
+a.daftar{
+	background-color: none;
+	border-radius: 8px;
+	text-decoration: none;
+	padding: 10px;
+	color: #55A746;
+	transition: .4s;
+	border-color:#55A746;
+	border-style:solid;
+	border-width:1px;
+}
+
+a.daftar:hover{
+	background-color: #55A746;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	color: white;
+	border-radius: 8px;
+	transition: .4s;
+	padding: 10px;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.user-header{
+	width: 40px;
+	height: 40px;
+	background-color: red;
+	border-radius: 50%;
+	padding: none;
+
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: white;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #575157;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: white;
+}
+
+.halsatu{
+	background-color: white;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+.col-4.cover{
+	padding: 20px;
+	margin-left: 10px;
+}
+
+.col-7.penggalang-dana{
+	padding: 15px;
+}
+
+.text-first-penggalangan-dana{
+	font-size: 14px;
+	margin-bottom: 0;
+	margin-top: 25px;
+	color: #8f8f8f;
+}
+
+.text-second-penggalangan-dana{
+	font-size: 16px;
+	font-weight: bold;
+	color: #575157;
+}
+
+
+.haldua{
+	padding:50px;
+	background-color: white;
+}
+
+.input-group{
+	margin-bottom: 15px;
+}
+
+.form-check{
+	margin-right: 20px;
+	margin-top: 2px;
+}
+
+
+.btn.btn-donasi-sekarang{
+	background-color: #db3143;
+	padding: 15px;
+	font-weight: bold;
+	color: white;
+	width: 100%;
+	margin-top: 5px;
+	border-radius: 15px;
+	margin-bottom: -2px;
+	font-size: 14px;
+}
+
+.btn.btn-donasi-sekarang:hover{
+	background-color: #9d1725;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	font-weight: bold;
+	color: white;
+	border-radius: 20px;
+}
+
+.hp{
+}
+
+.hp .form-control {
+	font-size: 14px;
+}
+
+.halsatu-hp{
+	background-color: white;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	margin-top: -28px;
+}
+
+.text-first-penggalangan-dana-hp{
+	font-size: 14px;
+	margin-bottom: 0;
+	margin-top: 8px;
+	margin-left: -2px;
+	color: #8f8f8f;
+}
+
+.text-second-penggalangan-dana-hp{
+	font-size: 16px;
+	font-weight: bold;
+	color: #575157;
+}
+
+.btn.btn-donasi-sekarang-hp{
+	background-color: #db3143;
+	font-weight: bold;
+	color: white;
+	width: 100%;
+	margin-top: 5px;
+	border-radius: 15px;
+	margin-bottom: -2px;
+	font-size: 14px;
+	padding: 10px;
+}
+
+.btn.btn-donasi-sekarang-hp:hover{
+	background-color: #9d1725;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	font-weight: bold;
+	color: white;
+	border-radius: 20px;
+}
+
+.haldua-hp{
+	padding:30px;
+	background-color: white;
+	border-radius: 10px;
+	
+}

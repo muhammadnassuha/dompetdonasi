@@ -1,0 +1,48 @@
+/*HPP*/
+@media (max-width: 767.98px) {
+  .desktop {
+    display: none;
+  }
+
+  #sidebar-hp .user2 img {
+  	margin-top: 20px;
+  }
+
+  .data-profil label {
+  	font-size: 13px;
+  }
+
+  .data-profil .form-control {
+  	font-size: 13px;
+  }
+
+  .btn-save {
+    width: 100% !important;
+  }
+
+  .btn-save:hover {
+    border-radius: 25px;
+    transition: .7s;
+  }
+
+  .breadcrumb-item {
+  	font-size: 12px;
+  }
+
+  .campaign-user .card-title, .campaign-user .card-terkumpul {
+  	font-size: 13px;
+  	text-align: center;
+  }
+
+  .text-campaign-donasi {
+  	font-size: 13px;
+  }	
+
+}
+
+/*DESKTOP*/
+@media (min-width: 992px) {
+	.hp {
+		display: none;
+	}  
+}

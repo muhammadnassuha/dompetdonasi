@@ -1,0 +1,290 @@
+body{
+	 background-color: #f7f7f7;
+}
+
+ h1, h2, h3, h4, h5, p{
+ 	font-family: 'Roboto', sans-serif;
+ }
+
+.navbar-expand-lg{
+	background-color: white;
+}
+
+a.navbar-brand{
+	text-decoration: none;
+	color: #55A746;
+	font-weight: bold;
+}
+
+a.navbar-brand:hover{
+	text-decoration: none;
+}
+
+a.nav-link{
+	color: #575157;
+	margin-left: 20px;
+	border-radius: 8px;
+	transition: .4s;
+}
+
+a.nav-link:hover{
+	background-color: #e3e3e3;
+	color: #73826e;
+	border-radius: 8px;
+}
+
+a.nav-user{
+	color: #575157;
+	margin-left: 20px;
+	border-radius: 8px;
+	transition: .4s;
+	font-size: 12px;
+}
+
+a.nav-user:hover{
+	background-color: #e3e3e3;
+	color: #73826e;
+	border-radius: 8px;
+}
+.user{
+	width: 40px;
+	height: 40px;
+	background-color: red;
+	border-radius: 50%;
+	padding: none;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: white;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #575157;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: white;
+}
+
+
+.footer-fix-hp{
+                  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+                  background-color:white;
+                  padding:8px;
+                  margin-bottom:-8px;
+              }
+              
+              p.text-footer-fixed-hp{
+                  text-align:center;
+                  text-decoration:none;
+                  color:#8f8f8f;
+              }
+              
+              a.link-text-footer{
+                  text-decoration:none;
+                  color:#8f8f8f;
+                  font-size:14px;
+              }
+
+.hal1{
+	margin-top: 60px;
+}
+
+
+.data-profil{
+	background-color: white;
+	padding: 25px;
+	border-radius: 20px;
+}
+
+h3.text-account{
+	color: #1c7564;
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+p.text-account{
+	color: #575157;
+}
+
+.table-dana{
+	padding: 20px;
+	background: linear-gradient(#c6e4cc, #f6fff8);
+	border-radius: 20px;
+}
+
+.text-campaign{
+	font-weight: bold;
+	font-size: 12px;
+	margin-bottom: 0;
+}
+
+h2.jumlah-campaign{
+	color:  #1c7564;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.hal2{
+	margin-top: 30px;
+}
+
+p.text-campaign-donasi{
+	font-weight: bold;
+	font-size: 16px;
+}
+
+a.ajukan-campaign{
+	padding: 10px;
+	color: #8dd09b;
+	background-color: none;
+	font-size: 12px;
+	border-width: 1px;
+	border-style:  solid;
+	border-color: #8dd09b;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 10px;
+	transition: .4s;
+}
+
+a.ajukan-campaign:hover{
+	padding: 10px;
+	color: white;
+	font-size: 12px;
+	background-color: #8dd09b;
+	font-size: 12px;
+	text-decoration: none;
+	border-radius: 10px;
+	border-color: #8dd09b;
+	border: none;
+}
+
+.card.campaign{
+	border: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	transition: 0.2s;
+}
+
+.card.campaign-user{
+	border: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 30px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	background: rgb(193,103,42);
+	background: linear-gradient(264deg, rgba(193,103,42,1) 14%, rgba(199,151,48,1) 46%, rgba(199,81,48,1) 76%); 
+	font-weight: bold;
+	border-radius: 25px;
+	font-size: 1.1em;
+	text-transform: uppercase; 
+	color: white;
+}
+.card.campaign:hover{
+	border: none;
+	transition: .4s;
+	transform: scale(1.01);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.content{
+	padding: 20px;
+}
+
+.judul-campaign{
+	font-weight: bold;
+	font-size: 14px;
+	height: 6vh;
+	color: #575157;
+}
+
+.penggalangan-dana{
+	font-size: 10px;
+	margin-bottom: 8px;
+	height: 2vh;
+	background-color: none;
+	color: #8f8f8f;
+}
+
+.progress{
+	margin-bottom: 10px;
+	height: 6px;
+	background-color: #d7e6df;
+}
+
+.progress-bar{
+	background-color: #3bd78e;
+}
+
+.nominal-donasi{
+	height: 5vh;
+}
+
+.col.terdanai{
+	text-align: left;
+}
+
+.col.kekurangan{
+	text-align: right;
+}
+
+.nominal-terdanai{
+	font-weight: bold;
+	font-size: 12px;
+	margin-bottom: 2px;
+	color: #575157;
+}
+
+.text-terdanai{
+	font-size: 12px;
+	color: #8f8f8f;
+}
+
+.nominal-kekurangan{
+	font-weight: bold;
+	font-size: 12px;
+	margin-bottom: 2px;
+	color: #575157;
+}
+
+.text-kekurangan{
+	font-size: 12px;
+	color: #8f8f8f;
+}
