@@ -1,0 +1,371 @@
+/*HPP*/
+@media (max-width: 767.98px) {
+
+	.nav-desktop, .footer-desk {
+	    display: none;
+    }
+
+    #zakat {
+    	padding-top: 100px;
+    }
+
+    .kotak {
+		padding: 20px !important;
+	}
+
+	.form-zakat label {
+		font-size: 13px;
+	}
+
+	.form-zakat .form-control {
+		font-size: 13px;
+	}
+
+	#basic-addon1 {
+		font-size: 13px;
+	}
+
+	.btn-masuk {
+		font-size: 15px;
+	}
+
+  	.footer-fix-hp{
+	      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	      background-color:white;
+	      padding:8px;
+	      margin-bottom:-8px;
+	  }
+	  
+	  p.text-footer-fixed-hp{
+	      text-align:center;
+	      text-decoration:none;
+	      color:#8f8f8f;
+	  }
+
+	   a.link-text-footer{
+	      text-decoration:none;
+	      color:#8f8f8f;
+	      font-size:14px;
+	  }
+  
+}
+
+/*DESKTOP*/
+@media (min-width: 992px) {
+
+	.nav-hp, .footer-hp,.scat3 {
+		display: none;
+	}
+	  
+}
+
+h1, h2, h3, h4, p{
+	font-family: 'Roboto', sans-serif;
+}
+
+.navbar-expand-lg{
+	background-color: white;
+	padding: 15px;
+	margin-bottom: 50px;
+}
+
+a.navbar-brand{
+	text-decoration: none;
+	color: #55A746 !important;
+	font-weight: bold;
+}
+
+a.navbar-brand:hover{
+	text-decoration: none;
+}
+
+a.nav-link{
+	color: #575157;
+	margin-left: 20px;
+	border-radius: 20px;
+}
+
+a.nav-link:hover{
+	background-color: #e3e3e3;
+	color: #575157;
+	border-radius: 20px;
+}
+
+a.masuk{
+	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	margin-right: 10px;
+	padding: 10px;
+	background-color: #55A746;
+}
+
+a.masuk:hover{
+	background-color: #e3e3e3;
+	color: #575157;
+	border-radius: 8px;
+	transition: .4s;
+	text-decoration: none;
+	padding: 10px;
+	margin-right: 10px;
+}
+
+a.daftar{
+	background-color: #FB4B5E;
+	border-radius: 8px;
+	text-decoration: none;
+	padding: 10px;
+	color: white;
+	transition: .4s;
+}
+
+a.daftar:hover{
+	background-color: #a22f3b;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	color: white;
+	border-radius: 8px;
+	transition: .4s;
+	padding: 10px;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.user-header{
+	width: 40px;
+	height: 40px;
+	background-color: red;
+	border-radius: 50%;
+	padding: none;
+
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: white;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #575157;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: white;
+}
+
+.kotak {
+	background-color: white;
+	padding: 30px;
+	border-radius: 10px;
+	margin-bottom: 5PX;
+	box-shadow: 0px 4px 6px 1px rgb(0 0 0 / 20%);
+}
+
+
+.profesi {
+	text-align: center;
+}
+
+.button {
+	text-align: center;
+	margin-top: 10vh;
+}
+
+.text-top .hasil {
+	font-size: 1.6em;
+}
+
+.bg-nisab {
+	background-color: #55a74642;
+	padding: 10px 40px;
+}
+
+.bg-nisab h5{
+	font-size: 12px;
+}
+
+
+input[type="submit"]:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+	pointer-events: auto !important;
+}
+
+hr {
+	margin: 20px auto;
+	width: 40%;
+	height: 3px !important;
+}
+
+
+.btn-masuk {
+	background-color: #55A746;
+	color: white;
+	font-weight: 500;
+}
+
+.btn-masuk:hover {
+	color: white;
+}
+
+.hp a{
+	text-decoration: none;
+}
+
+
+.user-hp{
+	width: 50px;
+	height: 50px;
+	background-color: red;
+	border-radius: 50%;
+
+}
+
+a.first-text-user-hp{
+	color: #3bd78e;
+	font-size: 14px;
+}
+
+p.second-text-user-hp{
+	color: #a69ca6;
+	font-size: 12px;
+}
+
+.btn-donasi-sekarang {
+	background-color: #55A746;
+	color: white;
+}
+
+.btn-donasi-sekarang:hover {
+	color: white;
+}
+
+footer{
+	background-color: #525d63;
+}
+
+.col-4.footer{
+	padding: 30px;
+}
+
+.text-footer{
+	font-size: 14px;
+	color: white;
+}
+
+.media-sosial-whatsapp{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #069c3f;
+	color: white;
+}
+
+.media-sosial-whatsapp:hover{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #06652a;
+	color: white;
+	transition: 1s
+}
+
+
+.media-sosial-facebook{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #106ac7;
+	color: white;
+}
+
+.media-sosial-facebook:hover{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #0a4888;
+	color: white;
+	transition: 1s
+}
+
+.media-sosial-instagram{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #d72d41;
+	color: white;
+}
+
+.media-sosial-instagram:hover{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #8a1d2a;
+	color: white;
+	transition: 1s
+}
+
+.media-sosial-youtube{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #b90016;
+	color: white;
+}
+
+.media-sosial-youtube:hover{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #7b0211;
+	color: white;
+	transition: 1s
+}
+
+.far.fa-envelope{
+	color: white;
+}
+
+
+

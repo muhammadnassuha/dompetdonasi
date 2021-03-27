@@ -1,26 +1,5 @@
 <?php 
 
-require '../function.php';
-
-
-
-$penghasilan = $_POST ['penghasilan'];
-$pendapatan =$_POST ['pendapatan'];
-$hutang =$_POST ['hutang'];
-
-if (isset($_POST['bayar-zakat'])) {
-    
-    if ($penghasilan >'5200020' ) {
-
-            header("location: ../");
-
-    }else{
-      echo "belum memenuhi";
-    }
-       
-}
-
-
 
 ?>
 
@@ -39,7 +18,7 @@ if (isset($_POST['bayar-zakat'])) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/zakat.css">
+    <link rel="stylesheet" type="text/css" href="../css/hasil.css">
     <link rel="shortcut icon" href="../img/icon/logo_favicon.png">
 
     <title>Dompet Donasi - Zakat Online</title>
@@ -112,53 +91,79 @@ if (isset($_POST['bayar-zakat'])) {
         <!-- zakat -->
         <div id="zakat">
           <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-4">
-                <div class="kotak">
-                  <div class="profesi">
-                    <label>KALKULATOR ZAKAT</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row justify-content-center">
-              <div class="col-md-4">
-                <div class="kotak">
-                  <div class="profesi">
-                    <label><i class="far fa-id-card"></i> Profesi</label>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <div class="row justify-content-center">
               <div class="col-md-4">
                 <div class="kotak form-zakat" style="margin-bottom: 50px;">
-                  <form action="" method="post" onsubmit="return validasi_input(this)" autocomplete="off">
-                    <label style="font-weight: 500; margin-bottom: 10px;" >Pendapatan <span style="color: red"> *</span></label>
+                  <div class="text-top" style="text-align: center;">
+                    <p style="font-weight: 550">Hasil Perhitungan Zakat Profesi</p>
+                    <p class="hasil" style="font-weight: bold;">Rp. 120.000</p>
+                  </div>
+                  <div class="bg-nisab" style="text-align: center;">
+                    <h5><span style="font-weight: bold;">Zakat kamu belum memenuhi nisab</span> yang setara dengan harga 524 Kg beras (BAZNAS)</h5>
+                  </div>
+                  <hr>
+                  <form action="hasil" method="post" onsubmit="return validasi_input(this)" autocomplete="off">
+                    <label style="font-weight: 500; margin-bottom: 10px;" >Lengkapi Data Dibawah Ini <span style="color: red"> *</span></label>
                     <br>
-                    <label for="rupiah" class="form-label">Penghasilan per bulan</label>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Rp.</span>
-                      <input type="text" name="penghasilan" class="form-control" id="rupiah" placeholder="Penghasilan per bulan" onkeypress="return hanyaAngka(event)" onkeyup="manage(this)">
+                      <input type="hidden" name="zakat" value="120.000">
+                      <input type="text" class="form-control" placeholder="Nama Lengkap" name="nama">
                     </div>
 
-                    <label for="rupiah2" class="form-label">Pendapatan lain per bulan (opsional)</label>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Rp.</span>
-                      <input type="text" name="pendapatan" class="form-control" id="rupiah2" placeholder="Pendapatan lain per bulan (opsional)" onkeypress="return hanyaAngka(event)">
+                      <input type="text" class="form-control" placeholder="Email" name="email">
                     </div>
 
-                    <label for="rupiah3" class="form-label">Utang / Cicilan</label>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Rp.</span>
-                       <input type="text" name="hutang" class="form-control" id="rupiah3" placeholder="Utang / Cicilan" onkeypress="return hanyaAngka(event)">
+                       <input type="text" class="form-control" maxlength="13" placeholder="No HP" name="hp" onkeypress="return hanyaAngka(event)">
                     </div>
 
-                    <div class="button">
-                      <input type="submit" class="btn btn-masuk" name="bayar-zakat" value="Hitung Zakat" id="btSubmit" disabled>
-                    </div>
+                    <hr>
+
+                    <label style="font-size: 14px; color:  #575157; margin-bottom: 8px;">Melalui Bank :</label>
+                      <div class="accordion" id="accordionExample2">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                              <img src="../img/icon/bri.png" style="width:35%; margin-right:10px;">Bank BRI
+                            </button>
+                          </h2>
+                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                              <div class="card-body-hp" style="padding: 0;">
+                                  <input type="hidden" name="name_rek" value="Yayasan Dompet Yatim Piatu Amanah">
+                                  <input type="hidden" name="norek" value="0523 0100 0259 302">
+                                  
+                                  <div class="donasi">
+                                    <input type="submit" class="btn btn-donasi-sekarang" name="transfer" style="width: 100%;"
+                                      value="Tunaikan Sekarang">
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                              <img src="../img/icon/bni.png" style="width:28%; margin-right:10px;">Bank BNI
+                            </button>
+                          </h2>
+                          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                              <div class="card-body-hp"  style="padding: 0;">
+                                  <input type="hidden" name="name_rek2" value="Dompet Yatim Piatu Amanah">
+                                  <input type="hidden" name="norek2" value="946 713 835">
+                                  
+                                  <div class="donasi">
+                                    <input type="submit" class="btn btn-donasi-sekarang" name="transfer2" style="width: 100%;"
+                                      value="Tunaikan Sekarang">
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                   </form>
                 </div>
               </div>
@@ -238,7 +243,52 @@ if (isset($_POST['bayar-zakat'])) {
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/zakat.js"></script>
+    <script type="text/javascript">
+      // hanya angka
+function hanyaAngka(evt) {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+       if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+        return false;
+      return true;
+    }
+
+      // validasi input
+function validasi_input(form) {
+        var minchar = 3;
+        pola_email=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/;
+        //membuat pattern inputan email
+
+        //validasi dimulai
+        if (form.nama.value == "") {
+          alert("Nama Lengkap Harus Diisi!");
+          form.nama.focus();
+          return (false);
+        }
+
+        //validasi dimulai
+        else if (form.email.value == "") {
+          alert("Email Harus Diisi!");
+          form.email.focus();
+          return (false);
+        }
+
+        else if (!pola_email.test(form.email.value)) {
+          alert('Penulisan Email Salah. Contoh: aaaaaa@mail.com');
+          form.email.focus();
+          return (false);
+        } 
+
+        //validasi dimulai
+        else if (form.hp.value == "") {
+          alert("No Handphone Harus Diisi!");
+          form.hp.focus();
+          return (false);
+        }   
+
+
+      }
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
