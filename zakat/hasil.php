@@ -119,7 +119,7 @@ $total = $total['total'];
 
                   <?php }else{ ?>   
 
-                     <div class="bg-nisab" style="text-align: center;">
+                     <div class="bg-nisab" style="text-align: center; background-color: #b04a6736;">
                     <h5><span style="font-weight: bold;">Zakat kamu belum memenuhi nisab</span> yang setara dengan harga 524 Kg beras (BAZNAS)</h5>
                   </div>
                 <?php } ?>
