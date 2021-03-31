@@ -10,12 +10,14 @@ if (isset($_POST["bayar-zakat"]) ) {
         $bonus  = str_replace('.', '', $_POST['bonus']);
         $hutang = str_replace('.', '', $_POST['hutang']);
 
-        $total  = $pendapatan + $bonus - $hutang;
+        if ($hutang == 1) {
+          $total  = $pendapatan + $bonus;
+        } else {
+          $total  = $pendapatan + $bonus - $hutang;
+        }
 
-        echo print_r($total);
-        die();
 
-        $hasil =  "INSERT INTO zakat VALUES('$pendapatan', '$bonus', '$hutang','', '$total')";
+        $hasil =  "INSERT INTO zakat VALUES('','$pendapatan', '$bonus', '$hutang','', '$total')";
         $query = mysqli_query($conn, $hasil)or die(mysqli_error($conn));
 
 
