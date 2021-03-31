@@ -49,13 +49,13 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
 <head>
         <meta charset="utf-8" />
         <title>Admin | <?php echo $_SESSION["username"]; ?> </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="../img/icon/logo.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
-        <link rel="stylesheet" type ="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+        <link rel="stylesheet" type ="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css" >
         <script type="text/javascript" charset ="utf8" src = "//cdn.datatables.net/1.10.12/js/jquery.dataTables.js" defer> </script>
 
 
@@ -68,8 +68,7 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
         <!-- App Css-->
         <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <script type="text/javascript"  src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript"  src=" https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+        
 
     </head>
 
@@ -286,7 +285,7 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
                                             <table id="example" class="table table-hover table-centered table-nowrap mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">Id</th>
+                                                       
                                                         <th scope="col">Nama</th>
                                                         <th scope="col">No. HP</th>
                                                         <th scope="col">Link</th>
@@ -310,13 +309,8 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
                                                         ?>
 
                                                         <tr>
-                                                            <th scope="row"><?php echo $data3["id"]; ?></th>
-                                                            <td>
-                                                                <div>
-                                                                    <!-- <img src="assets/images/users/user-6.jpg" alt=""
-                                                                        class="avatar-xs rounded-circle mr-2"> --> <?php echo $data3["nama"]; ?>
-                                                                </div>
-                                                            </td>
+                                                           
+                                                            <td> <?php echo $data3["nama"]; ?> </td>
                                                             <td><?php echo $data3["hp"]; ?></td>
                                                             <td><?php echo $data3["link"]; ?></td>
                                                             <td><?php echo $data3["doa"]; ?></td>
@@ -328,11 +322,8 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
                                                             <td>Rp. <?php echo $data3["jumlah_donasi"]; ?></td>
                                                             <td style="text-align: center;"><?php echo $data3["keterangan"]; ?></td>
                                                             
-                                                            <td>
-                                                                <div>
-                                                                    <a href="https://dompetdonasi.com/admin/konfirmasi_donasi?id=<?php echo $data3["kode_unik"]; ?>&nama=<?php echo $data3["nama"]; ?>" class="btn btn-primary btn-sm">Edit</a>
-                                                                </div>
-                                                            </td>
+                                                            <td><a href="https://dompetdonasi.com/admin/konfirmasi_donasi?id=<?php echo $data3["kode_unik"]; ?>&nama=<?php echo $data3["nama"]; ?>" class="btn btn-primary btn-sm">Edit</a></td>
+                                                             
                                                         </tr>
 
 
@@ -349,7 +340,7 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
                                 <div class="card bukti_resi">
                                     <div class="card-body" style="font-weight: bold;"> Bukti Transaksi Terakhir</h4>
                                         <div class="table-responsive">
-                                        <table id="example" class="table table-hover table-centered table-nowrap mb-0">
+                                        <table  class="table table-hover table-centered table-nowrap mb-0">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Id</th>
@@ -446,28 +437,45 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
           document.getElementById("modal01").style.display = "block";
         }
         </script>
-       <!--  <script type="text/javascript">
-        $(document).ready(function(){
-            setTimeout(function() {
-                location.reload();
-            }, 10000);
-        })
-        </script> -->
-       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-            var table = $('#example')
-            setInterval(function () {
-                $('#example').load('data.php')
-            }, 2000);
-        });
-                setInterval( function () {
-                  
-                    table.ajax.reload(null, false);
-                }, 5000 );  
+      <script type="text/javascript">
+        $(document).ready(function(){
+            
+         var table = $('#example').DataTable({
+             "processing": true,
+             "serverSide": true,
+             "ajax": {
+                 "url": "localhost/tes/tabel_admin/ajax_donasi",
+                 "type": "POST",
+                 "data": { "page": "1", "show_per_page": "10" }
+             },
         
-        </script>
+             columns: [
+                 { title: "no" },
+                 { title: "nama" },
+                 { title: "hp" },
+                 { title: "link" },
+                 { title: "doa" },
+                 { title: "donasi" },
+                 { title: "no_rek" },
+                 { title: "nama_rek" },
+                 { title: "dibuat" },
+                 { title: "kode_unik" },
+                 { title: "jumlah" },
+                 { title: "keterangan" }
+                          
+                       
+        
+                 ]
+             });
+        
+             setInterval(function() {
+                 console.log('jalan');
+                 table.ajax.reload();
+             }, 5000);
+         });
+         </script>
 
     </body>
 

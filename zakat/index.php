@@ -3,22 +3,35 @@
 require '../function.php';
 
 
+if (isset($_POST["bayar-zakat"]) ) {
+        $hisab = 5000000;
+        $total = 0;
+        $pendapatan = str_replace('.', '', $_POST['pendapatan']);
+        $bonus  = str_replace('.', '', $_POST['bonus']);
+        $hutang = str_replace('.', '', $_POST['hutang']);
 
-$penghasilan = $_POST ['penghasilan'];
-$pendapatan =$_POST ['pendapatan'];
-$hutang =$_POST ['hutang'];
+        $total  = $pendapatan + $bonus - $hutang;
 
-if (isset($_POST['bayar-zakat'])) {
-    
-    if ($penghasilan >'5200020' ) {
+        echo print_r($total);
+        die();
 
-            header("location: ../");
+        $hasil =  "INSERT INTO zakat VALUES('$pendapatan', '$bonus', '$hutang','', '$total')";
+        $query = mysqli_query($conn, $hasil)or die(mysqli_error($conn));
 
-    }else{
-      echo "belum memenuhi";
-    }
-       
+
+        if($total >= 5000000){
+
+        
+
+         header("location:https://localhost/tes/zakat/hasil");
+
+        }else {
+
+          header("location:https://localhost/tes/zakat/hasil");
+        }
+
 }
+
 
 
 
@@ -141,13 +154,13 @@ if (isset($_POST['bayar-zakat'])) {
                     <label for="rupiah" class="form-label">Penghasilan per bulan</label>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Rp.</span>
-                      <input type="text" name="penghasilan" class="form-control" id="rupiah" placeholder="Penghasilan per bulan" onkeypress="return hanyaAngka(event)" onkeyup="manage(this)">
+                      <input type="text" name="pendapatan" class="form-control" id="rupiah" placeholder="Penghasilan per bulan" onkeypress="return hanyaAngka(event)" onkeyup="manage(this)">
                     </div>
 
                     <label for="rupiah2" class="form-label">Pendapatan lain per bulan (opsional)</label>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Rp.</span>
-                      <input type="text" name="pendapatan" class="form-control" id="rupiah2" placeholder="Pendapatan lain per bulan (opsional)" onkeypress="return hanyaAngka(event)">
+                      <input type="text" name="bonus" class="form-control" id="rupiah2" placeholder="Pendapatan lain per bulan (opsional)" onkeypress="return hanyaAngka(event)">
                     </div>
 
                     <label for="rupiah3" class="form-label">Utang / Cicilan</label>
@@ -239,6 +252,31 @@ if (isset($_POST['bayar-zakat'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../js/zakat.js"></script>
+   <!--  <script>
+      // rupiah
+      var rupiah = document.getElementById('target');
+      rupiah.addEventListener('keyup', function (e) {
+          // tambahkan 'Rp.' pada saat form di ketik
+          // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+          rupiah.value = formatRupiah(this.value, 'Rp. ');
+      });
+      /* Fungsi formatRupiah */
+      function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split = number_string.split(','),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+          // tambahkan titik jika yang di input sudah menjadi angka ribuan
+          if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+          }
+          rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+          return prefix == undefined ? rupiah : (rupiah ? '' + rupiah : '');
+      }
+  </script> -->
+
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

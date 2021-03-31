@@ -1,5 +1,9 @@
 <?php 
+require '../function.php';
 
+$query   = mysqli_query($conn, "SELECT * FROM `zakat`  ORDER BY `id` DESC ");
+$total    = mysqli_num_rows($query);
+$total = $total['total'];
 
 ?>
 
@@ -91,17 +95,35 @@
         <!-- zakat -->
         <div id="zakat">
           <div class="container">
+              <?php if(mysqli_num_rows($query)){ ?>
+                <?php
+                    $no = '<i class="far fa-user-circle fa-3x"></i>';
+                    $data3 = mysqli_fetch_array($query)
+
+              ?>
 
             <div class="row justify-content-center">
               <div class="col-md-4">
                 <div class="kotak form-zakat" style="margin-bottom: 50px;">
                   <div class="text-top" style="text-align: center;">
                     <p style="font-weight: 550">Hasil Perhitungan Zakat Profesi</p>
-                    <p class="hasil" style="font-weight: bold;">Rp. 120.000</p>
+                    <p class="hasil" style="font-weight: bold;"><?php echo number_format($data3['total']); ?></p>
                   </div>
+                <?php }  ?>
+                 <?php
+                if ($data3['total'] >= 5000000) { ?>
+
                   <div class="bg-nisab" style="text-align: center;">
+                    <h5><span style="font-weight: bold;">Zakat kamu Sudah Memenuhi nisab</span> yang setara dengan harga 524 Kg beras (BAZNAS)</h5>
+                  </div>
+
+                  <?php }else{ ?>   
+
+                     <div class="bg-nisab" style="text-align: center;">
                     <h5><span style="font-weight: bold;">Zakat kamu belum memenuhi nisab</span> yang setara dengan harga 524 Kg beras (BAZNAS)</h5>
                   </div>
+                <?php } ?>
+
                   <hr>
                   <form action="hasil" method="post" onsubmit="return validasi_input(this)" autocomplete="off">
                     <label style="font-weight: 500; margin-bottom: 10px;" >Lengkapi Data Dibawah Ini <span style="color: red"> *</span></label>

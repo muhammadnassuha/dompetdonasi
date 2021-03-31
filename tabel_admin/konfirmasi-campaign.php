@@ -47,6 +47,10 @@ $para_donatur    = mysqli_num_rows($donatur);
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="../img/icon/logo.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+        <link rel="stylesheet" type ="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css" >
+        <script type="text/javascript" charset ="utf8" src = "//cdn.datatables.net/1.10.12/js/jquery.dataTables.js" defer> </script>
+
 
         <link href="assets/libs/chartist/chartist.min.css" rel="stylesheet">
 
@@ -57,6 +61,7 @@ $para_donatur    = mysqli_num_rows($donatur);
         <!-- App Css-->
         <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
         
         
         <style type="text/css">
@@ -341,43 +346,38 @@ $para_donatur    = mysqli_num_rows($donatur);
                             </div>
                         </div>
                     </div>
-                  
-                        <div class="card">
-                            <div class="card-body">Campaign Yang Sudah terkonfirmasi</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-centered table-nowrap mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">No</th>
-                                                <th scope="col">Nama</th>
-                                                <th scope="col">Judul</th>
-                                                <th scope="col">Link</th>
-                                                <th scope="col">Target</th>
-                                                <th scope="col">Donasi</th>
-                                                <th scope="col">Periode</th>
-                                                <th scope="col">Dibuat</th>
-                                                <th scope="col">Deskripsi</th>
-                                                 <th scope="col">gambar</th>
-                                                <th scope="col" colspan="2">Status</th>
-
-                                            </tr>
-                                        </thead>
-                                        
-                                        <tbody>
+      
+                    <div class="card">
+                        <div class="card-body">Transaksi Terakhir</h4>
+                            <div class="table-responsive">
+                                <table id="campaign" class="table table-hover table-centered table-nowrap mb-0" >
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Judul</th>
+                                            <th scope="col">Link</th>
+                                            <th scope="col">Target</th>
+                                            <th scope="col">Donasi</th>
+                                            <th scope="col">Periode</th>
+                                            <th scope="col">Dibuat</th>
+                                            <th scope="col">Deskripsi</th>
+                                             <th scope="col">gambar</th>
                                             
-                                            <!-- lopping Campaign -->
-                                            <?php 
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                           <?php 
                                                 include "../config/config.php";
 
-                                                $query = mysqli_query($koneksi, "SELECT * FROM campaign where konfirmasi = 'ok'");
+                                                $query = mysqli_query($koneksi, "SELECT * FROM campaign where konfirmasi = 'Pending'");
                                             
                                                 $no = 1;
                                                 while ($hasil = mysqli_fetch_array($query))
                                                  {
                                                 
                                             ?>
-
-                                                 <tr>
+                                             <tr>
                                                     <td><?php echo $no++; ?></td>                                        
                                                     <td> <?php echo $hasil["nama"]; ?></td>
                                                     <td><?php echo $hasil["judul"]; ?></td>
@@ -387,31 +387,28 @@ $para_donatur    = mysqli_num_rows($donatur);
                                                     <td><?php echo $hasil["periode"]; ?></td>
                                                     <td><?php echo $hasil["dibuat"]; ?></td>
                                                      <td class="isi_deskripsi"><?php echo htmlspecialchars_decode( $hasil['deskripsi']);?></td>
-                                                   <td class="foto_resi"><img id="myImg" src="../img/foto-campaign/<?php echo $hasil["gambar"]; ?>" style="width: 4rem; cursor: pointer;" onclick="onClick(this)"></td>
+                                                    <td class="foto_resi"><img id="myImg" src="../img/foto-campaign/<?php echo $hasil["gambar"]; ?>" style="width: 4rem; cursor: pointer;" onclick="onClick(this)"></td>
+                                                    
+                                                    
                                                     <td><?php echo $hasil["konfirmasi"]; ?></td>
-                                                    </tr>
-                                              <?php }?>
-                                              <div id="modal01" class="w3-modal" onclick="this.style.display='none'" style="z-index: 999999">
-                                              <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                                              <div class="w3-modal-content w3-animate-zoom" style="z-index: 999999">
-                                                <img id="img01" style="width:100%">
-                                              </div>
-                                            </div>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        </tr>
+                                        <?php }?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-
-                                    <footer class="footer">
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    © <script>document.write(new Date().getFullYear())</script> DYPA<span class="d-none d-sm-inline-block"> <i class="mdi mdi-heart text-danger"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </footer>
+                    </div>
+                </div>
+            </div>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                © <script>document.write(new Date().getFullYear())</script> DYPA<span class="d-none d-sm-inline-block"> <i class="mdi mdi-heart text-danger"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
 
 <!-- JAVASCRIPT -->
 <script src="assets/libs/jquery/jquery.min.js"></script>
@@ -427,7 +424,10 @@ $para_donatur    = mysqli_num_rows($donatur);
 <script src="assets/libs/chartist/chartist.min.js"></script>
 <script src="assets/libs/chartist-plugin-tooltips/chartist-plugin-tooltip.min.js"></script>
 
+
+
 <script src="assets/js/pages/dashboard.init.js"></script>
+
 
 <script src="assets/js/app.js"></script>
   <script>
@@ -436,13 +436,40 @@ $para_donatur    = mysqli_num_rows($donatur);
           document.getElementById("modal01").style.display = "block";
         }
         </script>
-          <script type="text/javascript">
-            $(document).ready(function(){
-                setTimeout(function() {
-                    location.reload();
-                }, 10000);
-            })
+    <script type="text/javascript">
+        $(document).ready(function(){
+        
+            var table = $('#campaign').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "https://localhost/tes/tabel_admin/ajax_campaign",
+                    "type": "POST",
+                    "data": { "page": "1", "show_per_page": "10" }
+                },
+
+                columns: [
+                    { title: "no" },
+                    { title: "nama" },
+                    { title: "judul" },
+                    { title: "link" },
+                    { title: "target" },
+                    { title: "donasi" },
+                    { title: "periode" },
+                    { title: "dibuat" },
+                    { title: "deskripsi" },
+                    { title: "Status" }
+
+                ]
+            });
+
+            setInterval(function() {
+                console.log('jalan');
+                table.ajax.reload();
+            }, 5000);
+        });
         </script>
+
 
 </body>
 
