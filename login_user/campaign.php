@@ -305,7 +305,7 @@ $query4  = mysqli_query($conn, "SELECT * FROM donasi WHERE link = '$id' and kete
               <div class="container-fluid" style="margin-top:8px; margin-bottom:-5px;">
                   <div class="row row-2">
                       <div class="col-1">
-                         <a href="../" style="color:black;"><i class="fas fa-arrow-left"></i></a>
+                         <a href="https://dompetdonasi.com/login_user/" style="color:black;"><i class="fas fa-arrow-left"></i></a>
                       </div>
                       <div class="col-11">
                          <p style="margin left:15px; font-size:12px;"><?php echo $data["judul"]; ?></p> 
@@ -328,7 +328,7 @@ $query4  = mysqli_query($conn, "SELECT * FROM donasi WHERE link = '$id' and kete
           <div class="keterangan-doantur-hp" style="height: 2vh; margin-top: -2px;">
             <div class="row row-cols-2">
               <div class="donatur-hp">
-                <b style="color: black;"><?php echo $donatur ?></b> Donasi
+                <b style="color: black;"><?php echo $donatur ?></b> Donatur
               </div>
               <div class="hari-hp">
                 <b style="color: black;"><?php echo $sisa->days; ?></b> Hari lagi
@@ -454,7 +454,7 @@ $query4  = mysqli_query($conn, "SELECT * FROM donasi WHERE link = '$id' and kete
                             <p style="text-align:center"><a class="btn btn-whatsapp-bottom"><i class="fab fa-whatsapp"></i></a></p>
                           </div>
                           <div class="col-8">
-                            <p style="text-align:center"><a href="https://dompetdonasi.com/campaign/donasi/donasi?id=<?php echo $data["link"]; ?>"  class="btn btn-donasi-bottom">DONASI SEKARANG</a></p>
+                            <p style="text-align:center"><a href="https://dompetdonasi.com/login_user/donasi?id=<?php echo $data["link"]; ?>"  class="btn btn-donasi-bottom">DONASI SEKARANG</a></p>
                           </div>
                         </div>
                       </div>

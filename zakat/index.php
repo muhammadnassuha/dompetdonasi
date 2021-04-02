@@ -1,9 +1,12 @@
 <?php 
 
 require '../function.php';
+session_start();
 
 
 if (isset($_POST["bayar-zakat"]) ) {
+        
+        $idUser = $_SESSION["id"];
         $hisab = 5000000;
         $total = 0;
         $pendapatan = str_replace('.', '', $_POST['pendapatan']);
@@ -17,7 +20,7 @@ if (isset($_POST["bayar-zakat"]) ) {
         }
 
 
-        $hasil =  "INSERT INTO zakat VALUES('','$pendapatan', '$bonus', '$hutang','', '$total')";
+        $hasil =  "INSERT INTO zakat VALUES('', '$pendapatan', '$bonus', '$hutang', '$idUser', '$total', '')";
         $query = mysqli_query($conn, $hasil)or die(mysqli_error($conn));
 
 
@@ -25,11 +28,11 @@ if (isset($_POST["bayar-zakat"]) ) {
 
         
 
-         header("location:https://localhost/tes/zakat/hasil");
+         header("location:https://dompetdonasi.com/zakat/hasil");
 
         }else {
 
-          header("location:https://localhost/tes/zakat/hasil");
+          header("location:https://dompetdonasi.com/zakat/hasil");
         }
 
 }

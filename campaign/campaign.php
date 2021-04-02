@@ -299,7 +299,7 @@ $query4  = mysqli_query($conn, "SELECT * FROM donasi WHERE link = '$id' and kete
           <div class="keterangan-doantur-hp" style="height: 2vh; margin-top: -2px;">
             <div class="row row-cols-2">
               <div class="donatur-hp">
-                <b style="color: black;"><?php echo $donatur ?></b> Donasi
+                <b style="color: black;"><?php echo $donatur ?></b> Donatur
               </div>
               <div class="hari-hp">
                 <b style="color: black;"><?php echo $sisa->days; ?></b> Hari lagi

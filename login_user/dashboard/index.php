@@ -137,11 +137,20 @@ $campaign = mysqli_num_rows($query2);
                               
                             </div>
                           </div>
-
+                          
                           <div class="col-4">
-                            <h3 class="text-account"><?php echo $nama; ?></h3>
+                            <div class="row">
+                              <div class="col-3">
+                                <h3 class="text-account"><?php echo $nama; ?></h3>
+                              </div>
+
+                              <div class="col-1">
+                                <h3 class="text-account" style="font-weight: bold; font-size: 14px; color: #0691b0;"><?php echo $_SESSION['verifikasi']; ?></h3>
+                              </div>
+                            </div>
                             <p class="gmail-account"><?php echo $_SESSION['email']; ?></p>
                           </div>
+
 
                           <div class="col-6">
 
@@ -182,7 +191,7 @@ $campaign = mysqli_num_rows($query2);
                             <hr>
                           </div>
                           <div class="col-4">
-                            <a href="" class="ajukan-campaign"><i class="fas fa-plus" style="margin-right: 2px;"></i>  Ajukan Campaign</a>
+                            <a href="../../create_campaign/" class="ajukan-campaign"><i class="fas fa-plus" style="margin-right: 2px;"></i>  Ajukan Campaign</a>
                             <a href="" class="ajukan-campaign"><i class="fas fa-book" style="margin-right: 2px;"></i>  Riwayat Transaksi</a>
                           </div>
                         </div>

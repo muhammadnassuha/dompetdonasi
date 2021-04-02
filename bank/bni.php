@@ -92,7 +92,7 @@ $waktu  = date("H:i:s", strtotime($jam));
 
           <div class="container"style="background-color: white; padding: 10px; border-radius: 10px; margin-top:5px;">
             <a class="btn btn-konfirmasi" href="bank_konfirmasi">Konfirmasi Donasi</a>
-          <a class="btn btn-beranda" href="../index">Beranda</a>
+          <a class="btn btn-beranda" href="../">Beranda</a>
           
           </div>
         </div>

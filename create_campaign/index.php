@@ -52,12 +52,28 @@
     <link rel="shortcut icon" href="../img/icon/logo_favicon.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700;900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../css/redactor.min.css" />
 
     <style type="text/css">
-      .tox-statusbar__branding {
-        display: none;
-      }
+        a.re-button.re-html.re-button-icon {
+            display: none;
+        }
 
+        a.re-button.re-link.re-button-icon {
+            display: none;
+        }
+
+        a.re-button.re-format.re-button-icon {
+            display: none;
+        }
+
+        a.re-button.re-deleted.re-button-icon {
+            display: none;
+        }
+        
+        .redactor-styles address, .redactor-styles blockquote, .redactor-styles dl, .redactor-styles figure, .redactor-styles hr, .redactor-styles p, .redactor-styles pre, .redactor-styles table {
+            font-size: 1em;
+        }
     </style>
 
     <!-- Custom styles for this template -->
@@ -117,7 +133,7 @@
 
                       <div class="form-group" style="margin-bottom:10px;">
                         <label for="inputState" class="form-label">Masukkan Cerita Penggalangan Dana Kamu</label>
-                        <textarea id="mytextarea" name="deskripsi" placeholder="Masukkan Cerita Kamu" rows="20"></textarea>
+                        <textarea id="content" name="deskripsi" placeholder="Masukkan Cerita Kamu" rows="20"></textarea>
                           </select>
                       </div>
                       
@@ -211,7 +227,7 @@
 
                       <div class="form-group mb-3">
                         <label for="inputState" class="form-label">Batas Waktu Penggalangan Dana</label>
-                        <textarea id="mytextarea2" name="deskripsi" placeholder="Masukkan Cerita Kamu"></textarea>
+                        <textarea id="content" name="deskripsi" placeholder="Masukkan Cerita Kamu"></textarea>
                       </div>
                       
                         <button type="submit" name="daftar" class="btn btn-daftar_akun">Selanjutnya</button>
@@ -230,95 +246,21 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-    <script src="https://cdn.tiny.cloud/1/j3k9v18xanbgpajxq2ebwndterw1avtj529tg2es1d5fctpr/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- redactor js -->
+    <script src="../js/redactor3.js"></script>
+
+    <!-- plugin js -->
+    <script src="../js/imagemanager.js"></script>
     <script type="text/javascript" src="../js/donasi.js"></script>
   
+    <script>
+      $R('#content', {
+          plugins: ['imagemanager'],
+          imageUpload: 'upload_img.php'
+      });
+    </script>
+  
     <script type="text/javascript">
-
-      tinymce.init({
-        selector: '#mytextarea',
-        plugins: 'image code',
-    toolbar: 'undo redo | image code',
-
-    // without images_upload_url set, Upload tab won't show up
-    images_upload_url: 'upload.php',
-    
-    // override default upload handler to simulate successful upload
-    images_upload_handler: function (blobInfo, success, failure) {
-        var xhr, formData;
-      
-        xhr = new XMLHttpRequest();
-        xhr.withCredentials = false;
-        xhr.open('POST', 'upload.php');
-      
-        xhr.onload = function() {
-            var json;
-        
-            if (xhr.status != 200) {
-                failure('HTTP Error: ' + xhr.status);
-                return;
-            }
-        
-            json = JSON.parse(xhr.responseText);
-        
-            if (!json || typeof json.location != 'string') {
-                failure('Invalid JSON: ' + xhr.responseText);
-                return;
-            }
-        
-            success(json.location);
-        };
-      
-        formData = new FormData();
-        formData.append('file', blobInfo.blob(), blobInfo.filename());
-      
-        xhr.send(formData);
-    },
-      });
-
-
-    tinymce.init({
-        selector: '#mytextarea2',
-        plugins: 'image code',
-    toolbar: 'undo redo | image code',
-
-    // without images_upload_url set, Upload tab won't show up
-    images_upload_url: 'upload.php',
-    
-    // override default upload handler to simulate successful upload
-    images_upload_handler: function (blobInfo, success, failure) {
-        var xhr, formData;
-      
-        xhr = new XMLHttpRequest();
-        xhr.withCredentials = false;
-        xhr.open('POST', 'upload.php');
-      
-        xhr.onload = function() {
-            var json;
-        
-            if (xhr.status != 200) {
-                failure('HTTP Error: ' + xhr.status);
-                return;
-            }
-        
-            json = JSON.parse(xhr.responseText);
-        
-            if (!json || typeof json.location != 'string') {
-                failure('Invalid JSON: ' + xhr.responseText);
-                return;
-            }
-        
-            success(json.location);
-        };
-      
-        formData = new FormData();
-        formData.append('file', blobInfo.blob(), blobInfo.filename());
-      
-        xhr.send(formData);
-    },
-      });
-
-
 // validasi Input
       function validasi_input(form) {
         var minchar = 10;

@@ -12,6 +12,9 @@ if (!isset($_SESSION["admin"]) ) {
 
 
 require '../function.php';
+require '../PHPMailer/src/PHPMailer.php' ;
+require '../PHPMailer/src/SMTP.php';
+require '../PHPMailer/src/Exception.php';
 include 'utility.php';
 
 $date = date("Y-m-d H:i:s");

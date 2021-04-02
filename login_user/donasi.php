@@ -1,6 +1,9 @@
 <?php 
 
 require "../function.php";
+require '../PHPMailer/src/PHPMailer.php' ;
+require '../PHPMailer/src/SMTP.php';
+require '../PHPMailer/src/Exception.php';
 // pengambilan ID
 session_start();
 
@@ -53,6 +56,7 @@ $link   = $data["link"];
 $nama  = $data["nama"];
 $foto   = $data["gambar"];
 
+$email  = $_SESSION["email"];
 
 ?>
 
@@ -148,6 +152,11 @@ $foto   = $data["gambar"];
                 <div class="input-group">
                   <input type="text" class="form-control" name="hp" maxlength="13" id="inputAddress" aria-label="Sizing example input"  placeholder="Nomor Telphone / Whatsapp" oninput="setCustomValidity('')"onkeypress="return hanyaAngka(event)" required="required" oninvalid="this.setCustomValidity('Masukkan No Whatsapp/Telephone')" oninput="setCustomValidity('')">
                 </div>
+                
+                <div class="input-group">
+                  <input type="hidden" class="form-control" name="email" value="<?php echo($email); ?>">
+                </div>
+                
                 <div class="input-group flex-nowrap">
                   <span class="input-group-text" id="addon-wrapping"><b>RP</b></span>
                   <input type="text" class="form-control" name="donasi" id="rupiah" maxlength="12" placeholder="Nominal Donasi" aria-label="nominal" required="required" oninvalid="this.setCustomValidity('Masukan Nilai Donasi Kamu')" 
@@ -209,6 +218,12 @@ $foto   = $data["gambar"];
 
     <!-- HP -->
       <div class="hp">
+          <!-- Start Header -->
+          <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: white;">
+            <div class="container">
+              <img src="../../img/icon/logo.png" style="width: 3em;">
+            </div>
+          </nav>
         <!-- Table Donasi -->
           <div class="container" style="margin-bottom: 20px;">
             <div class="halsatu-hp shadow-sm">
@@ -232,6 +247,10 @@ $foto   = $data["gambar"];
                 </div>
                 <div class="input-group">
                   <input type="text" class="form-control" name="hp" maxlength="13" id="inputAddress" aria-label="Sizing example input"  placeholder="Nomor Telphone / Whatsapp" oninput="setCustomValidity('')"onkeypress="return hanyaAngka(event)" required="required" oninvalid="this.setCustomValidity('Masukkan No Whatsapp/Telephone')" oninput="setCustomValidity('')">
+                </div>
+                
+                <div class="input-group">
+                  <input type="hidden" class="form-control" name="email" value="<?php echo($email); ?>">
                 </div>
                 <div class="input-group flex-nowrap">
                   <span class="input-group-text" id="addon-wrapping"><b>RP</b></span>

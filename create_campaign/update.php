@@ -59,11 +59,28 @@ $donatur = mysqli_num_rows($query2);
     <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
     <link rel="shortcut icon" href="../img/icon/logo_favicon.png"/>
+    <link rel="stylesheet" href="../css/redactor.min.css" />
 
     <style type="text/css">
-      .tox-statusbar__branding {
-        display: none;
-      }
+       a.re-button.re-html.re-button-icon {
+            display: none;
+        }
+
+        a.re-button.re-link.re-button-icon {
+            display: none;
+        }
+
+        a.re-button.re-format.re-button-icon {
+            display: none;
+        }
+
+        a.re-button.re-deleted.re-button-icon {
+            display: none;
+        }
+        
+        .redactor-styles address, .redactor-styles blockquote, .redactor-styles dl, .redactor-styles figure, .redactor-styles hr, .redactor-styles p, .redactor-styles pre, .redactor-styles table {
+            font-size: 1em;
+        }
 
       .btn-update {
         background-color: #4CAF50;
@@ -317,7 +334,7 @@ $donatur = mysqli_num_rows($query2);
 
                       <div class="form-group" style="margin-bottom:10px; padding: 20px;">
                         <label for="inputState" class="form-label" style="font-weight: bold;">Tuliskan Update Terbaru Dari Campaign Kamu</label>
-                        <textarea id="mytextarea" name="deskripsi" placeholder="Masukkan Cerita Kamu" rows="20"></textarea>
+                        <textarea id="content" name="deskripsi" placeholder="Masukkan Cerita Kamu" rows="20"></textarea>
                       </div>
                       
                        <div class="btn-cerita" style="text-align: center;">
@@ -344,72 +361,17 @@ $donatur = mysqli_num_rows($query2);
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdn.tiny.cloud/1/j3k9v18xanbgpajxq2ebwndterw1avtj529tg2es1d5fctpr/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script type="text/javascript">
+    <!-- redactor js -->
+    <script src="../js/redactor3.js"></script>
 
-      tinymce.init({
-        selector: '#mytextarea',
-        plugins: 'image code',
-    toolbar: 'undo redo | image code',
-
-    // without images_upload_url set, Upload tab won't show up
-    images_upload_url: 'upload.php',
+    <!-- plugin js -->
+    <script src="../js/imagemanager.js"></script>
     
-    // override default upload handler to simulate successful upload
-    images_upload_handler: function (blobInfo, success, failure) {
-        var xhr, formData;
-      
-        xhr = new XMLHttpRequest();
-        xhr.withCredentials = false;
-        xhr.open('POST', 'upload.php');
-      
-        xhr.onload = function() {
-            var json;
-        
-            if (xhr.status != 200) {
-                failure('HTTP Error: ' + xhr.status);
-                return;
-            }
-        
-            json = JSON.parse(xhr.responseText);
-        
-            if (!json || typeof json.location != 'string') {
-                failure('Invalid JSON: ' + xhr.responseText);
-                return;
-            }
-        
-            success(json.location);
-        };
-      
-        formData = new FormData();
-        formData.append('file', blobInfo.blob(), blobInfo.filename());
-      
-        xhr.send(formData);
-    },
+    <script type="text/javascript">
+         $R('#content', {
+          plugins: ['imagemanager'],
+          imageUpload: 'upload_img.php'
       });
-
-
-       function validasi_input(form) {
-        var minchar = 10;
-        //membuat pattern inputan email
-
-        //validasi dimulai
-        if (form.judul.value == "") {
-          alert("Judul Campaign Harus Diisi!");
-          form.judul.focus();
-          return (false);
-        } else if (form.judul.value.length <= minchar) {
-          alert("Judul Harus Minimal 12  Karakter!");
-          form.judul.focus();
-          return (false);
-        } else if (form.deskripsi.value == "") {
-          alert("Cerita Harus Diisi!");
-          form.deskripsi.focus();
-          return (false);
-        }
-
-      }
-
     </script>
 
     <script type="text/javascript">

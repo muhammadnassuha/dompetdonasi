@@ -166,6 +166,12 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer WHERE keterangan = '
                             <span>Pencairan Dana</span>
                             </a>
                         </li>
+                         <li>
+                            <a href="zakat" class="waves-effect">
+                            <i class="mdi mdi-cash-usd-outline"></i><span class="badge badge-pill badge-primary float-right"></span>
+                            <span>Zakat</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="log-activity" class="waves-effect">
                             <i class="mdi mdi-clipboard-list"></i><span class="badge badge-pill badge-primary float-right"></span>
@@ -196,7 +202,7 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer WHERE keterangan = '
                         <div class="row align-items-center">
                             <div class="col-sm-6">
                                 <div class="page-title-box">
-                                    <h4 class="font-size-18">Dashboard</h4>
+                                    <h4 class="font-size-18">Donasi Succes</h4>
                                     <ol class="breadcrumb mb-0">
                                         <li class="breadcrumb-item active">Hai <?php echo $_SESSION["nama"]; ?>, Selamat Datang di Halaman Admin </li>
                                     </ol>

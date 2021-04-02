@@ -3,13 +3,16 @@
 error_reporting(0);
 
 require "../function.php";
+require '../PHPMailer/src/PHPMailer.php' ;
+require '../PHPMailer/src/SMTP.php';
+require '../PHPMailer/src/Exception.php';
 // pengambilan ID
 
 if (isset($_POST["daftar"]) ) {
 
       if(buat_akun($_POST) > 0 ) {
         echo "<script>
-                alert('Buat Akun Sukses, Silahkan Login Terlebih Dahulu');
+                alert('Buat Akun Sukses, Silahkan Cek Email Untuk Verifikasi Akun Kamu');
                 document.location.href = 'login';
             </script>";
 

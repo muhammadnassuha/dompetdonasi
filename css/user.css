@@ -252,6 +252,15 @@ p.second-text-judul-campaign-hp{
 }
 
 .penggalangan-dana{
+	font-size: 12px;
+	margin-bottom: 8px;
+	height: 2vh;
+	background-color: none;
+	color: #8f8f8f;
+}
+
+.sisa-hari p {
+	text-align: right;
 	font-size: 14px;
 	margin-bottom: 8px;
 	height: 2vh;

@@ -9,10 +9,13 @@ if (!isset($_SESSION["user"]) ) {
 
 require '../function.php';
 // looping campaign desktop
-$query    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'OK'  ORDER BY `id` DESC ");
+$query    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'OK'  ORDER BY `id` DESC LIMIT 6");
 
-// looping campaign hp
-$query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'OK'  ORDER BY `id` DESC ");
+// looping campaign desktop
+$query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'OK'  ORDER BY `id` DESC LIMIT 6");
+
+// looping campaign HP
+$query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = 'OK'  ORDER BY `id` DESC LIMIT 6");
 
 ?>
 
@@ -34,7 +37,7 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
     <link rel="stylesheet" href="../css/preloader.css">
     <link rel="shortcut icon" href="../img/icon/logo_favicon.png">
 
-    <title>Dompet Kita</title>
+    <title>Dompet Donasi - Berbagi Kebaikan Berkah Melimpah</title>
   </head>
   <body>
     <!-- preloader -->
@@ -61,7 +64,7 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
                     <a class="nav-link active" aria-current="page" href="#">Donasi Rutin</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Zakat</a>
+                    <a class="nav-link" href="https://dompetdonasi.com/login_user/zakat/">Zakat</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Wakaf</a>
@@ -113,7 +116,7 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
             <div class="row row-3">
               <div class="col-4">
                   <?php
-                      $data = mysqli_query($conn, "SELECT * FROM `campaign`  ORDER BY `id` DESC");
+                      $data = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'OK'  ORDER BY `id` DESC");
                      $hasil = mysqli_num_rows($data);
                   ?>
                 <h2 class="text-data"><?php echo $hasil ?></h2>
@@ -191,8 +194,20 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
                             <div class="judul-campaign">
                               <p><?php echo $data["judul"]; ?></p>
                             </div>
-                            <div class="penggalangan-dana">
-                              <p>Oleh <?php echo $data["nama"]; ?></p>
+                            <div class="nama">
+                              <div class="row row-cols-2">
+                                <div class="col">
+                                  <div class="penggalangan-dana">
+                                    <p>Oleh <?php echo $data["nama"]; ?></p>
+                                  </div>
+                                </div>
+
+                                <div class="col">
+                                  <div class="sisa-hari">
+                                    <p><?php echo $sisa->days; ?> Hari Lagi</p>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                             <div class="progress">
                               <div class="progress-bar" role="progressbar" style="width: <?php echo $persen; ?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -221,7 +236,7 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
 
         <!-- selengkapnya -->
           <div class="selengkapnya" style="text-align: center; margin: 20px 0;">
-            <a href="" class="btn btn-selengkapnya">Lihat Selengkapnya</a>
+            <a href="all_campaign_user/" class="btn btn-selengkapnya">Lihat Selengkapnya</a>
           </div>
       </div>
       
@@ -230,7 +245,7 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
             <div class="container" style="width: 60%; padding:20px;">
               <div class="mengapa-donasi">
                 <h2 class="first-text-mengapa-donasi">Mengapa donasi lewat Dompetdonasi.com ?</h2>
-                <p class="first-text-mengapa-donasi">Dompetdonasi.com memudahkan Anda dalam melakukan donasi online dan penggalangan dana untuk orang yang membutuhkan, namun mengapa harus Dompetyatimamanah.com?</p>
+                <p class="first-text-mengapa-donasi">Dompetdonasi.com memudahkan Anda dalam melakukan donasi online dan penggalangan dana untuk orang yang membutuhkan, namun mengapa harus Dompetdonasi.com?</p>
     
     
                 <div class="row row-3">
@@ -302,7 +317,7 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
         <!-- Start Header -->
           <nav class="navbar navbar-expand-lg shadow-sm fixed-top" style="background-color: white;">
             <div class="container">
-              <img src="../img/icon/logo.png" style="width: 3em;"><a class="nav-link" href="index" style=" margin-right: -150px; font-size:14px;"><?php echo $_SESSION['nama_lengkap']; ?></a>
+              <img src="../img/icon/logo.png" style="width: 3em;"><a class="nav-link" href="https://dompetdonasi.com/login_user/" style=" margin-right: -150px; font-size:14px;"><?php echo $_SESSION['nama_lengkap']; ?></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="far fa-user"></i>
               </button>
@@ -326,7 +341,7 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
                     <p class="text-footer-fixed-hp"><a href="index.php" class="link-text-footer" style="color:#35a04c;"><i class="fas fa-home"style="color:#35a04c;"></i><br>Home</a></p>
                   </div>
                   <div class="col-3">
-                      <p class="text-footer-fixed-hp"><a href="" class="link-text-footer"><i class="fas fa-hand-holding-heart"></i><br>Donasi</a></p>
+                      <p class="text-footer-fixed-hp"><a href="all_campaign_user/" class="link-text-footer"><i class="fas fa-hand-holding-heart"></i><br>Donasi</a></p>
                   </div>
                   <div class="col-3">
                       <p class="text-footer-fixed-hp"><a href="../create_campaign/" class="link-text-footer"><i class="fas fa-plus-circle"></i><br>Campaign</a></p>
@@ -350,18 +365,95 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
                 <p style="text-align: center;"><a href=""  class="btn btn-tanyakami">Tanya Tentang Dana</a></p> 
             </div>
         </section>
+        <div class="container">
+            
+        </div> 
+        
+        
+        <div class="app shadow-sm">
+            <div class="row row-2">
+              <div class="col-6">
+                <p class="campaign-pilihan-hp">Campaign Pilihan</p>
+              </div>
+              <div class="col-6">
+                <p style="text-align:right;"><a href="all_campaign_user/" class="btn btn lihat-selengkapnya-hp" style="margin-left:5px;">Lihat Selengkapnya <i class="fas fa-angle-right" style="color:#299c42;"></i></a></p>
+              </div>
+            </div>    
+            <ul class="hs">
+                  <!-- looping -->
+              <?php if(mysqli_num_rows($query5)){ ?>
+              <?php
+                      $no = '<i class="far fa-user-circle fa-3x"></i>';
+                      while($data5 = mysqli_fetch_array($query5)){
+                  ?><?php
+                  $dateawal5 = date("Y-m-d");
+                  $dateakhir5 = $data5["periode"];
+  
+                  $awal5 = new DateTime($dateakhir5);
+                  $akhir5 = new DateTime($dateawal5);
+
+                  // die(var_dump($dateakhir));
+            
+  
+                  $sisa5 = $akhir5->diff($awal5);
+  
+                  // die(var_dump($sisa->days))
+  
+                    $harga5 = $data5["donasi"];
+                    // $harga1 = substr($harga1,3);
+                    $harga5 = (int) $harga1;
+
+  
+                    $harga5 = $data5["target"];
+                    $harga5 = str_replace(".","",$harga5);
+                    $harga5 = (int) $harga5;
+  
+                    $Tdonasi5 = $harga5;
+                    $persen5  = round($harga5/$Tdonasi5 * 100,2);
+                    
+
+      
+                    
+                  // endpersen 
+                    ?>    
+              <li class="card-slide-hp" style="margin-right:10px;">
+                <img src="https://dompetdonasi.com/img/foto-campaign/<?php echo $data5["gambar"]; ?>" width="100%">
+                  <div class="content" style="margin-right:10px;">
+                    <div class="judul-campaign-hp">
+                      <p><?php echo $data5["judul"]; ?></p>
+                    </div>
+                    <div class="penggalangan-dana-hp">
+                      <p>Oleh <?php echo $data5["nama"]; ?></p>
+                    </div>
+                    <div class="progress-hp">
+                      <div class="progress-bar-hp" role="progressbar" style="width: <?php echo $persen2; ?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="nominal-donasi-hp">
+                      <div class="row row-cols-2">
+                        <div class="col terdanai-hp">
+                          <p class="nominal-terdanai-hp">Rp. <?php echo number_format($data5["donasi"]); ?></p>
+                          <p class="text-kekurangan-hp">Terdanai</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+                <?php $no++; } ?>
+              <?php }?>
+            </ul>
+          </div>
         
           <div class="container" style="width:95%; margin-top:20px;">
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img class="d-block w-100" src="../img/slider/Zakat Online-01.jpg" alt="First slide">
+                  <img class="d-block w-100" src="../img/slider/profesi.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="../img/slider/Zakat Online-01.jpg" alt="Second slide">
+                  <img class="d-block w-100" src="../img/slider/fitrah.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="../img/slider/Zakat Online-01.jpg" alt="Third slide">
+                  <img class="d-block w-100" src="../img/slider/profesi.jpg" alt="Third slide">
                 </div>
               </div>
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -457,12 +549,28 @@ $query2    = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'O
             </div>  
           </div>
           
+           <!-- selengkapnya -->
+          <div class="selengkapnya-hp" style="text-align: center; margin: 20px 0;">
+            <a href="all_campaign_user/" class="btn btn-selengkapnya-hp">Lihat Selengkapnya</a>
+          </div>
+          
+            <!-- Konfirmasi Donasi-hp -->
+            <div class="konfirmasi-donasi-hp">
+                <div class="container">
+                    <p class="first-text-konfirmasi-hp">Lakukan Konfirmasi Donasi setelah melakukan donasi</p>
+                </div>
+                
+              <div class="konfirmasi-hp" style="text-align: center; margin: 20px 0;">
+                <a href="bank_user/bank_konfirmasi" class="btn-konfirmasi-hp">Konfirmasi Donasi</a>
+              </div>
+            </div>
+          
           <!-- Data Penggalangan Dana -->
             <div class="perkenalan" sytle="padding:10px;">
                 <div class="container" style="width: 90%; padding:20px;">
                   <div class="mengapa-donasi">
                     <h2 class="first-text-mengapa-donasi">Mengapa donasi lewat Dompetdonasi.com ?</h2>
-                    <p class="first-text-mengapa-donasi">Dompetdonasi.com memudahkan Anda dalam melakukan donasi online dan penggalangan dana untuk orang yang membutuhkan, namun mengapa harus Dompetyatimamanah.com?</p>
+                    <p class="first-text-mengapa-donasi">Dompetdonasi.com memudahkan Anda dalam melakukan donasi online dan penggalangan dana untuk orang yang membutuhkan, namun mengapa harus Dompetdonasi.com?</p>
         
         
                         <img src="../img/icon/tepat-sasaran-01.png" width="100%">

@@ -1,14 +1,15 @@
 <?php 
 
-$conn = mysqli_connect ("localhost", "root", "", "u9023817_dompet_donasi");
+$conn = mysqli_connect ("localhost", "u9023817_dompet_donasi", "dompet123", "u9023817_dompet_donasi");
 
-
+session_start();
 function donasi($data) {
 	global $conn;
 
 	$link 			= $data["link"];
 	$nama 			= htmlspecialchars($data["nama"]);
     $hp 			= htmlspecialchars($data["hp"]);
+    $email 			= htmlspecialchars($data["email"]);
 	$donasi 		= htmlspecialchars($data["donasi"]);
 	$doa 			= htmlspecialchars($data["keterangan"]);
 	$norek 			= htmlspecialchars($data["norek"]);
@@ -18,7 +19,7 @@ function donasi($data) {
 	$dibuat 		= date('Y-m-d H:i:s');
 	
 
-	$hasil = mysqli_query($conn, "INSERT INTO donasi VALUES('', '$link', '$nama', '$hp', '$donasi', '$doa', '$norek', '$atas_nama', '$dibuat', '', '', '', 'cek')");
+	$hasil = mysqli_query($conn, "INSERT INTO donasi VALUES('', '$link', '$nama', '$hp', '$email', '$donasi', '$doa', '$norek', '$atas_nama', '$dibuat', '', '', '', 'cek')");
 
     
     // die(var_dump($hasil));	
@@ -62,6 +63,81 @@ function donasi($data) {
 
 	$jam = date('Y-m-d H:i:s',strtotime('+12 hour',strtotime($ind)));
 
+	// send mail
+	$email_user 	= $email;
+	$nama_lengkap	= $nama;
+	$uang 			= $total;
+	$no_rek			= $norek;
+	$nama_rek		= $atas_nama;	
+
+	$body= "
+        <body style='margin: 10px; font-size: 14px;'>
+            <div style='width: 640px; font-family: arial; padding:10px; line-height:150%; border:#eaeaea solid 10px;'>
+                <div style='background: rgb(215,215,215);background: linear-gradient(0deg, rgba(215,215,215,1) 0%, rgba(238,238,238,1) 46%, rgba(249,249,249,1) 100%); padding-top: 10px;padding-bottom:10px; padding-left:40px; padding-right:74%; width:20%; height: 60px '>
+                    <img src='http://dompetdonasi.com/img/icon/logo2.png' style='width: 4em' >
+                </div><br>
+                <br>
+                <div style='text-align: justify; padding-bottom: 20px;'>
+                    <strong style='font-size: 16px;'>$nama_lengkap, terima kasih atas transfer anda.</strong>
+                    <br><br>
+                    Mohon segera di transfer dalam waktu yg telah di tentukan. <br>
+                    Lakukan transfer sebesar:
+                    <br>
+                    <p style='font-size: 1.5em; font-weight: bold;'>Rp. $uang</p>
+                    <strong>Ke :</strong>
+                    <br>
+                    <br>
+                    <div style='padding-left:40px;'>
+                    	<img src='http://dompetdonasi.com/img/bank/bri.png' style='width: 6em' >
+               		</div>
+                    <br><br>
+                    <strong>No. Rek. : $no_rek</strong>
+                    <br>
+                    <strong>a.n : $nama_rek </strong>
+                    <br>
+                    <br>
+                    Proses transfer dapat dilakukan via channel apapun (ATM/mobile banking/sms banking/internet
+                    banking/teller)<br>
+            
+                    Donasi Anda akan terverifikasi oleh sistem maksimal dalam 1 hari kerja <span style='color:red'>*</span>.
+                    <br>
+                    <span style='color:red; font-size: 12px;'>*Verifikasi donasi akan mengalami keterlambatan, apabila transfer di
+                        luar jam kerja
+                        bank atau pada hari
+                        libur.</span> <br><br>
+            
+                    Anda akan mendapatkan notifikasi via email ketika donasi terverifikasi atau tercancel.
+                    Anda perlu mengirimkan bukti transfer ketika nominal transfer sudah sesuai dengan tagihan. <br><br>
+            
+                    Apabila dalam waktu 24jam, transfer belum kami terima, maka transfer akan dibatalkan oleh sistem.
+                    <br><br><br>
+            
+                    <strong>* Jika butuh bantuan, hubungi saya dengan membalas email ini.</strong>
+
+                </div>
+            </div>
+        </body>
+    ";
+
+
+
+	$mail =  new PHPMailer\PHPMailer1\PHPMailer();
+    $mail->IsSMTP(); 
+    $mail->IsHTML(true);
+    $mail->SMTPAuth 	= true; 
+    $mail->Host 		= "mail.dompetdonasi.com";
+    $mail->Port 		= 465;
+    $mail->SMTPSecure 	= "ssl";
+    $mail->Username 	= "cs@dompetdonasi.com"; //username SMTP
+    $mail->Password 	= "dompetamanah123";   //password SMTP
+	$mail->From    		= "cs@dompetdonasi.com"; //sender email
+	$mail->FromName 	= "Dompet Donasi";      //sender name
+	$mail->AddAddress($email_user, $nama_lengkap);//recipient: email and name
+	$mail->Subject  	=  "Konfirmasi Donasi Anda";
+	$mail->Body     	=  $body;
+	
+	$mail->Send();
+
 	// die(var_dump($donasi_total));
 	$update = mysqli_query($conn, "UPDATE `donasi` SET 
             `berakhir`      ='$jam',
@@ -82,6 +158,7 @@ function donasi2($data) {
 	$link 			= $data["link"];
 	$nama 			= htmlspecialchars($data["nama"]);
     $hp 			= htmlspecialchars($data["hp"]);
+    $email 			= htmlspecialchars($data["email"]);
 	$donasi 		= htmlspecialchars($data["donasi"]);
 	$doa 			= htmlspecialchars($data["keterangan"]);
 	$norek 			= htmlspecialchars($data["norek2"]);
@@ -91,7 +168,7 @@ function donasi2($data) {
 	$dibuat 		= date('Y-m-d H:i:s');
 	
 
-	$hasil = mysqli_query($conn, "INSERT INTO donasi VALUES('', '$link', '$nama', '$hp', '$donasi', '$doa', '$norek', '$atas_nama', '$dibuat', '', '', '', 'cek')");
+	$hasil = mysqli_query($conn, "INSERT INTO donasi VALUES('', '$link', '$nama', '$hp', '$email', '$donasi', '$doa', '$norek', '$atas_nama', '$dibuat', '', '', '', 'cek')");
 
     
     // die(var_dump($hasil));	
@@ -133,6 +210,80 @@ function donasi2($data) {
 
 	$jam = date('Y-m-d H:i:s',strtotime('+12 hour',strtotime($ind)));
 
+	// send mail
+	$email_user 	= $email;
+	$nama_lengkap	= $nama;
+	$uang 			= $total;
+	$no_rek			= $norek;
+	$nama_rek		= $atas_nama;	
+
+	$body= "
+        <body style='margin: 10px; font-size: 14px;'>
+            <div style='width: 640px; font-family: arial; padding:10px; line-height:150%; border:#eaeaea solid 10px;'>
+                <div style='background: rgb(215,215,215);background: linear-gradient(0deg, rgba(215,215,215,1) 0%, rgba(238,238,238,1) 46%, rgba(249,249,249,1) 100%); padding-top: 10px;padding-bottom:10px; padding-left:40px; padding-right:74%; width:20%; height: 60px '>
+                    <img src='http://dompetdonasi.com/img/icon/logo2.png' style='width: 4em' >
+                </div><br>
+                <br>
+                <div style='text-align: justify; padding-bottom: 20px;'>
+                    <strong style='font-size: 16px;'>$nama_lengkap, terima kasih atas transfer anda.</strong>
+                    <br><br>
+                    Mohon segera di transfer dalam waktu yg telah di tentukan. <br>
+                    Lakukan transfer sebesar:
+                    <br>
+                    <p style='font-size: 1.5em; font-weight: bold;'>Rp. $uang</p>
+                    <strong>Ke :</strong>
+                    <br>
+                    <br>
+                    <div style='padding-left:40px;'>
+                    	<img src='http://dompetdonasi.com/img/bank/bni.png' style='width: 6em' >
+               		</div>
+                    <br><br>
+                    <strong>No. Rek. : $no_rek</strong>
+                    <br>
+                    <strong>a.n : $nama_rek </strong>
+                    <br>
+                    <br>
+                    Proses transfer dapat dilakukan via channel apapun (ATM/mobile banking/sms banking/internet
+                    banking/teller)<br>
+            
+                    Donasi Anda akan terverifikasi oleh sistem maksimal dalam 1 hari kerja <span style='color:red'>*</span>.
+                    <br>
+                    <span style='color:red; font-size: 12px;'>*Verifikasi donasi akan mengalami keterlambatan, apabila transfer di
+                        luar jam kerja
+                        bank atau pada hari
+                        libur.</span> <br><br>
+            
+                    Anda akan mendapatkan notifikasi via email ketika donasi terverifikasi atau tercancel.
+                    Anda perlu mengirimkan bukti transfer ketika nominal transfer sudah sesuai dengan tagihan. <br><br>
+            
+                    Apabila dalam waktu 24jam, transfer belum kami terima, maka transfer akan dibatalkan oleh sistem.
+                    <br><br><br>
+            
+                    <strong>* Jika butuh bantuan, hubungi saya dengan membalas email ini.</strong>
+
+                </div>
+            </div>
+        </body>
+    ";
+
+
+
+	$mail =  new PHPMailer\PHPMailer1\PHPMailer();
+    $mail->IsSMTP(); 
+    $mail->IsHTML(true);
+    $mail->SMTPAuth 	= true; 
+    $mail->Host 		= "mail.dompetdonasi.com";
+    $mail->Port 		= 465;
+    $mail->SMTPSecure 	= "ssl";
+    $mail->Username 	= "cs@dompetdonasi.com"; //username SMTP
+    $mail->Password 	= "dompetamanah123";   //password SMTP
+	$mail->From    		= "cs@dompetdonasi.com"; //sender email
+	$mail->FromName 	= "Dompet Donasi";      //sender name
+	$mail->AddAddress($email_user, $nama_lengkap);//recipient: email and name
+	$mail->Subject  	=  "Konfirmasi Donasi Anda";
+	$mail->Body     	=  $body;
+	
+	$mail->Send();
 	
 	$update = mysqli_query($conn, "UPDATE `donasi` SET 
             `berakhir`      ='$jam',
@@ -226,6 +377,15 @@ function upload() {
 
 }
 
+function RemoveSpecialChar($desk_acak) {
+      
+    // Using str_replace() function 
+    // to replace the word 
+    $res = str_replace( array( "#", "'" ), ' ', $desk_acak);
+      
+    // Returning the result 
+    return $res;
+    }
 
 function registrasi($data) {
 	global $conn;
@@ -238,11 +398,12 @@ function registrasi($data) {
 	$donasi 	= $data["donasi"];
 	$periode 	= $data["periode"];
 	$dibuat 	= date("Y-m-d");
-	$deskripsi	= htmlspecialchars($data["deskripsi"]);
+    $desk_acak	= htmlspecialchars($data["deskripsi"]);
+	$deskripsi 	= RemoveSpecialChar($desk_acak); 
 
 	$query = mysqli_query($conn, "SELECT nama FROM campaign WHERE nama = '$nama'  ");
 
-	if (mysqli_fetch_assoc($query) > 2) {
+	if (mysqli_fetch_assoc($query)) {
 	    
             if(mysqli_fetch_assoc($query) > 2){
                 	echo "<script>
@@ -280,7 +441,7 @@ function registrasi($data) {
 	// input data ke database
 	$result = mysqli_query($conn, "INSERT INTO campaign VALUES('', '$kategori', '$nama', '$judul', '$link', '$target', '$donasi', '$periode', '$dibuat', '$deskripsi', '','Pending')");
 
-    // die(var_dump($nama));
+    // die(var_dump($result));
 	return mysqli_affected_rows($conn);
 
 
@@ -319,6 +480,68 @@ function update_donasi_admin ($data) {
 	$donasi = $row["donasi"];
 
 	$update_donasi = $donasi + $Tdonasi;
+	
+	//  dukungan
+	$query 		= mysqli_query($conn, "SELECT * FROM donasi WHERE id = '$id' ");
+	$hasil		= mysqli_fetch_assoc($query);
+	$doa 		= $hasil["doa"];
+
+	// send mail
+	$result2 	= mysqli_query($conn, "SELECT * FROM account WHERE nama_lengkap = '$name' ");
+	$data 		= mysqli_fetch_assoc($result2);
+
+	$link_user		= $link;
+	$judul_user		= $judul;
+	$nama_lengkap	= $data["nama_lengkap"];
+	$email_user		= $data["email"];
+	$rupiah			= number_format($Tdonasi);
+	// die(var_dump($hasil));
+	$body= "
+        <body style='margin: 10px; font-size: 14px;'>
+            <div style='width: 640px; font-family: arial; padding:10px; line-height:150%; border:#eaeaea solid 10px;'>
+                <div style='background: rgb(215,215,215);background: linear-gradient(0deg, rgba(215,215,215,1) 0%, rgba(238,238,238,1) 46%, rgba(249,249,249,1) 100%); padding-top: 10px;padding-bottom:10px; padding-left:40px; padding-right:74%; width:20%; height: 60px '>
+                    <img src='http://dompetdonasi.com/img/icon/logo2.png' style='width: 4em' >
+                </div><br>
+                <br>
+                <div style='text-align: justify; padding-bottom: 20px;'>
+                    Hai $nama_lengkap, <br>
+                    Anda baru saja mendapatkan donasi untuk Campaign <strong><a style='text-decoration: none; color: #192aec;' href='https://dompetdonasi.com/campaign/campaign.php?id=$link_user'>$judul_user</a></strong> dengan detail berikut:
+                    <br>
+                    <br>
+                    <strong>Nama :</strong> $nama <br>
+                    <strong>Nominal :</strong> $rupiah <br>
+                    <strong>Do'a :</strong> $doa
+                    <br>
+                    <br>
+                    Semoga donasi ini memberikan kemudahan dan manfaat serta menjadi rezeki yang berkah Aamiin<br>
+            
+                    <br><br>
+            
+                    <strong>* Jika butuh bantuan, hubungi saya dengan membalas email ini.</strong>
+
+                </div>
+            </div>
+        </body>
+    ";
+
+
+
+	$mail =  new PHPMailer\PHPMailer1\PHPMailer();
+    $mail->IsSMTP(); 
+    $mail->IsHTML(true);
+    $mail->SMTPAuth 	= true; 
+    $mail->Host 		= "mail.dompetdonasi.com";
+    $mail->Port 		= 465;
+    $mail->SMTPSecure 	= "ssl";
+    $mail->Username 	= "support@dompetdonasi.com"; //username SMTP
+    $mail->Password 	= "dompetamanah123";   //password SMTP
+	$mail->From    		= "support@dompetdonasi.com"; //sender email
+	$mail->FromName 	= "support";      //sender name
+	$mail->AddAddress($email_user, $nama_lengkap);//recipient: email and name
+	$mail->Subject  	=  "Donasi Masuk";
+	$mail->Body     	=  $body;
+	
+	$mail->Send();
 	
 	$update2 = mysqli_query($conn, 
 			"UPDATE `campaign` SET 
@@ -381,8 +604,50 @@ function buat_akun($data) {
 
 	$password = password_hash($password, PASSWORD_DEFAULT);
 
+
+	$key = $password;
+	$nama_lengkap 	= $nama_lengkap;
+	$email_user		= $email;
+	$body= "
+        <body style='margin: 10px;'>
+            <div style='width: 100%; font-family: arial; padding:10px; line-height:150%; display: content;'>
+                <div style='background: rgb(215,215,215);background: linear-gradient(0deg, rgba(215,215,215,1) 0%, rgba(238,238,238,1) 46%, rgba(249,249,249,1) 100%); padding-top: 10px;padding-bottom:10px; padding-left:40px; padding-right:74%; width:100%; height: 60px '>
+                    <img src='http://dompetdonasi.com/img/icon/logo2.png' style='width: 4em' >
+                </div><br>
+                <br>
+                <div style='text-align: center;padding-bottom: 20px;'>
+                    <strong style='font-size: 20px;'>Terima kasih telah mendaftar di dompetdonasi.com</strong>
+                <br></<strong><br>
+                Untuk memulai, klik tautan di bawah ini untuk mengonfirmasi akun Anda.
+                <br>
+                <br>
+                <a href='https://dompetdonasi.com/user/konfirmasi_akun?token_konfirmasi=$key' style='text-decoration: none; color: white; background-color: #53a946; padding: 13px; border-radius: 25px;'>Aktifkan Akun</a>
+                </div>
+            </div>
+        </body>
+    ";
+
+
+
+	$mail =  new PHPMailer\PHPMailer1\PHPMailer();
+    $mail->IsSMTP(); 
+    $mail->IsHTML(true);
+    $mail->SMTPAuth 	= true; 
+    $mail->Host 		= "mail.dompetdonasi.com";
+    $mail->Port 		= 465;
+    $mail->SMTPSecure 	= "ssl";
+    $mail->Username 	= "cs@dompetdonasi.com"; //username SMTP
+    $mail->Password 	= "dompetamanah123";   //password SMTP
+	$mail->From    		= "cs@dompetdonasi.com"; //sender email
+	$mail->FromName 	= "Dompet Donasi";      //sender name
+	$mail->AddAddress($email_user, $nama_lengkap);//recipient: email and name
+	$mail->Subject  	=  "Konfirmasi Akun Anda";
+	$mail->Body     	=  $body;
+	
+	$mail->Send();
+
 	// input data ke database
-	$result = mysqli_query($conn, "INSERT INTO account VALUES('', '$foto', '$nama_lengkap', '$hp', '$email', '$password')");
+	$result = mysqli_query($conn, "INSERT INTO account VALUES('', '$foto', '$nama_lengkap', '$hp', '$email', '$password', 'Belum terverifikasi')");
 
     // die(var_dump($result));
 	return mysqli_affected_rows($conn);
@@ -396,7 +661,8 @@ function update_campaign($data) {
 
 	$link 		= $data["link"];
 	$judul 		= htmlspecialchars($data["judul"]);
-	$deskripsi	= htmlspecialchars($data["deskripsi"]);
+	$desk_acak	= htmlspecialchars($data["deskripsi"]);
+	$deskripsi 	= RemoveSpecialChar($desk_acak);
 
 	$hasil = mysqli_query($conn, "INSERT INTO update_campaign VALUES('', '$link', '$judul', '$deskripsi')");
     
@@ -443,6 +709,67 @@ function update_akun($data) {
 
 }
 
+//Zakat
+function donasi_zakat($data){
+	global $conn;
+    $idUser         = $_SESSION["id"];
+	$nama           = $data['nama'];
+	$email          = $data['email'];
+	$no_hp          = $data['hp'];
+	$norek 			= $data["norek"];
+	$atas_nama		= $data["name_rek"];
+	
+	$result   = mysqli_query($conn, "SELECT * FROM zakat WHERE id_account = '$idUser' ORDER BY id DESC LIMIT 1");
+    $row      = mysqli_fetch_array($result);
+    	
+    $id = $row["id"];
+	
+
+	$query = mysqli_query($conn, "UPDATE zakat SET nama = '$nama', email = '$email', no_hp = '$no_hp', norek = '$norek', nama_rek = '$atas_nama' WHERE id = '$id'");
+
+	return mysqli_affected_rows($conn);
+}
+
+function donasi_zakat2($data){
+	global $conn;
+    $idUser = $_SESSION["id"];
+	$nama = $data['nama'];
+	$email = $data['email'];
+	$no_hp = $data['hp'];
+	$norek 			= $data["norek"];
+	$atas_nama		= $data["name_rek"];
+	
+	$result   = mysqli_query($conn, "SELECT * FROM zakat WHERE id_account = '$idUser' ORDER BY id DESC LIMIT 1");
+    $row      = mysqli_fetch_array($result);
+    	
+    $id = $row["id"];
+	
+
+	$query = mysqli_query($conn, "UPDATE zakat SET nama = '$nama', email = '$email', no_hp = '$no_hp', norek = '$norek', nama_rek = '$atas_nama' WHERE id = '$id'");
+
+	return mysqli_affected_rows($conn);
+}
+
+function update_donasi_zakat($data) {
+	global $conn;
+	// upload gambar
+	$nama 		= $data["nama"];
+	$donasi		= $data["zakat"];
+	$gambar = upload();
+	if (!$gambar) {
+		return false;
+	}
+
+	$hasil 	= mysqli_query($conn, "INSERT INTO transfer_zakat VALUES('', '$nama', '$donasi', '$gambar')");
+
+	
+
+// 	die(var_dump($nama));
+    
+
+	return mysqli_affected_rows($conn);
+
+}
 
 
 ?>

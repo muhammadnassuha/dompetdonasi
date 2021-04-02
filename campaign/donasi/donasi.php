@@ -1,6 +1,9 @@
 <?php 
 
 require "../../function.php";
+require '../../PHPMailer/src/PHPMailer.php' ;
+require '../../PHPMailer/src/SMTP.php';
+require '../../PHPMailer/src/Exception.php';
 // pengambilan ID
 
 if (isset($_POST["transfer"]) ) {
@@ -118,6 +121,11 @@ $foto   = $data["gambar"];
                 <div class="input-group">
                   <input type="text" class="form-control" name="hp" maxlength="13" id="inputAddress" aria-label="Sizing example input"  placeholder="Nomor Telphone / Whatsapp" oninput="setCustomValidity('')"onkeypress="return hanyaAngka(event)" required="required" oninvalid="this.setCustomValidity('Masukkan No Whatsapp/Telephone')" oninput="setCustomValidity('')">
                 </div>
+                
+                <div class="input-group">
+                  <input type="email" class="form-control" name="email" id="inputAddress" aria-label="Sizing example input"  placeholder="Masukkan Email Anda" required="required" oninvalid="this.setCustomValidity('Masukkan Email Anda')" oninput="setCustomValidity('')">
+                </div>
+                
                 <div class="input-group flex-nowrap">
                   <span class="input-group-text" id="addon-wrapping"><b>RP</b></span>
                   <input type="text" class="form-control" name="donasi" id="rupiah" maxlength="12" placeholder="Nominal Donasi" aria-label="nominal" required="required" oninvalid="this.setCustomValidity('Masukan Nilai Donasi Kamu')" 
@@ -186,7 +194,7 @@ $foto   = $data["gambar"];
             </div>
           </nav>
         <!-- Table Donasi -->
-          <div class="container" style="margin-bottom: 5px;">
+          <div class="container" style="margin-bottom: 5px; margin-top:40px;">
             <div class="halsatu-hp shadow-sm">
               <div class="row row-cols-2">
                 <div class="col-4 cover">
@@ -209,6 +217,11 @@ $foto   = $data["gambar"];
                 <div class="input-group">
                   <input type="text" class="form-control" name="hp" maxlength="13" id="inputAddress" aria-label="Sizing example input"  placeholder="Nomor Telphone / Whatsapp" oninput="setCustomValidity('')"onkeypress="return hanyaAngka(event)" required="required" oninvalid="this.setCustomValidity('Masukkan No Whatsapp/Telephone')" oninput="setCustomValidity('')">
                 </div>
+                
+                <div class="input-group">
+                  <input type="email" class="form-control" name="email" id="inputAddress" aria-label="Sizing example input"  placeholder="Masukkan Email Anda" required="required" oninvalid="this.setCustomValidity('Masukkan Email Anda')" oninput="setCustomValidity('')">
+                </div>
+                
                 <div class="input-group flex-nowrap">
                   <span class="input-group-text" id="addon-wrapping"><b>RP</b></span>
                   <input type="text" class="form-control" name="donasi" id="rupiah2" maxlength="12" placeholder="Nominal Donasi" aria-label="nominal" required="required" oninvalid="this.setCustomValidity('Masukan Nilai Donasi Kamu')" 

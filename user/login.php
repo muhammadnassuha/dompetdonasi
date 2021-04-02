@@ -33,6 +33,7 @@ require '../function.php';
           $_SESSION["telepon"]      = $row["telepon"];
           $_SESSION["email"]        = $row["email"];
           $_SESSION["password"]     = $row["password"];
+          $_SESSION["verifikasi"]   = $row["verifikasi"];
 
            
 
@@ -113,7 +114,7 @@ require '../function.php';
                       <i class="fa fa-user" aria-hidden="true" width="100%"></i>
                   </span>
                   </div>
-                  <input type="text" class="form-control" name="email" placeholder="Email/Telepon" aria-label="Email/Telepon" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name="email" placeholder="Email Kamu" aria-label="Email/Telepon" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3"  style="background-color: white;">
                   <div class="input-group-prepend">

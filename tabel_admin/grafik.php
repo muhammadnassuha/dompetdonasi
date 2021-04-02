@@ -175,6 +175,12 @@ for($bulan = 1;$bulan < 13;$bulan++)
                             <span>Pencairan Dana</span>
                             </a>
                         </li>
+                         <li>
+                            <a href="zakat" class="waves-effect">
+                            <i class="mdi mdi-cash-usd-outline"></i><span class="badge badge-pill badge-primary float-right"></span>
+                            <span>Zakat</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="log-activity" class="waves-effect">
                             <i class="mdi mdi-clipboard-list"></i><span class="badge badge-pill badge-primary float-right"></span>

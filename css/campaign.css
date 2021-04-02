@@ -155,6 +155,10 @@ a.daftar:hover{
 	margin-bottom:50px;
 }
 
+figure img {
+	width: 100% !important;
+}
+
 .col-8.campaign{
 	padding: 20px;
 }

@@ -41,7 +41,7 @@ h1{
 
 a.navbar-brand{
 	text-decoration: none;
-	color: #55A746;
+	color: #55A746 !important;
 	font-weight: bold;
 }
 
@@ -224,6 +224,15 @@ p.second-text-judul-campaign-hp{
 }
 
 .penggalangan-dana{
+	font-size: 12px;
+	margin-bottom: 8px;
+	height: 2vh;
+	background-color: none;
+	color: #8f8f8f;
+}
+
+.sisa-hari p {
+	text-align: right;
 	font-size: 14px;
 	margin-bottom: 8px;
 	height: 2vh;

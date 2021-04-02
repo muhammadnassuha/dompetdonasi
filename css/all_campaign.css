@@ -1,0 +1,395 @@
+/*HPP*/
+@media (max-width: 767.98px) {
+  	.nav-desktop, .footer-desk {
+	    display: none;
+    }
+
+  	h1.first-text-judul-campaign{
+		margin-top: -30px !important;
+	}
+
+
+	.footer-fix-hp{
+	      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	      background-color:white;
+	      padding:8px;
+	      margin-bottom:-8px;
+	  }
+	  
+	  p.text-footer-fixed-hp{
+	      text-align:center;
+	      text-decoration:none;
+	      color:#8f8f8f;
+	  }
+
+	   a.link-text-footer{
+          text-decoration:none;
+          color:#8f8f8f;
+          font-size:14px;
+      }
+
+  
+}
+
+/*DESKTOP*/
+@media (min-width: 992px) {
+	.nav-hp, .footer-hp,.scat3 {
+		display: none;
+	}  
+}
+
+body h1, h2, h3, h4, h5, p{
+	font-family: 'Roboto', sans-serif;
+}
+
+h1{
+	font-weight: bold;
+}
+
+.navbar-expand-lg{
+	background-color:rgba(0,0,0,0);
+	padding: 15px;
+	font-weight: bold;
+}
+
+.nav-desk.transparent {
+    background-color: white;
+    font-weight: normal;
+    transition: .9s;
+	font-weight: bold;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+}
+
+a.navbar-brand{
+	text-decoration: none;
+	color: #55A746;
+	font-weight: bold;
+}
+
+a.navbar-brand:hover{
+	text-decoration: none;
+}
+
+a.nav-link{
+	color: #575157;
+	margin-left: 10px;
+	border-radius: 8px;
+	transition: .4s;
+}
+
+a.nav-link:hover{
+	background-color: #e3e3e3;
+	color: #73826e;
+	border-radius: 8px;
+	padding-left: 10px !important;
+}
+
+a.masuk{
+	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	margin-right: 10px;
+	padding: 10px;
+	background-color: #55A746;
+	border-color:#55A746;
+	border-style:solid;
+	border-width:1px;
+}
+
+a.masuk:hover{
+	background-color: transparent;
+	color: #55A746;
+	transition: .4s;
+}
+
+a.daftar{
+	background-color: none;
+	border-radius: 8px;
+	text-decoration: none;
+	padding: 10px;
+	color: #55A746;
+	transition: .4s;
+	border-color:#55A746;
+	border-style:solid;
+	border-width:1px;
+}
+
+a.daftar:hover{
+	background-color: #55A746;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	color: white;
+	border-radius: 8px;
+	transition: .4s;
+	padding: 10px;
+	text-decoration: none;
+	padding: 10px;
+}
+
+a.nav-user{
+	color: #575157;
+	border-radius: 8px;
+	transition: .4s;
+	font-size: 12px;
+}
+
+a.nav-user:hover{
+	background-color: #e3e3e3;
+	color: #73826e;
+	border-radius: 8px;
+	padding-left: 10px;
+}
+
+.user{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	padding: none;
+
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: rgba(0,0,0,0);
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #575157;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: white;
+}
+
+
+h1.first-text-judul-campaign{
+	font-weight: bold;
+	font-size: #575157;
+	text-align: center;
+	color: #55A746;
+	margin-top: 50px;
+	margin-bottom: 0;
+}
+
+p.second-text-judul-campaign{
+	color: #575157;
+	text-align: center;
+	margin-bottom: 50px;
+	font-size: 1em;
+}
+
+
+.card.campaign{
+	border: none;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.10);
+	transition: 0.2s;
+}
+
+.card.campaign:hover{
+	border: none;
+	transition: .4s;
+	transform: scale(1.01);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.content{
+	padding: 20px;
+}
+
+.judul-campaign{
+	font-weight: bold;
+	font-size: 16px;
+	height: 8vh;
+	color: #575157;
+}
+
+.penggalangan-dana{
+	font-size: 14px;
+	margin-bottom: 8px;
+	height: 2vh;
+	background-color: none;
+	color: #8f8f8f;
+}
+
+.sisa-hari p {
+	text-align: right;
+	font-size: 14px;
+	margin-bottom: 8px;
+	height: 2vh;
+	background-color: none;
+	color: #8f8f8f;
+}
+
+.progress{
+	margin-bottom: 10px;
+	height: 6px;
+	background-color: #d7e6df;
+}
+
+.progress-bar{
+	background-color: #3bd78e;
+}
+
+.nominal-donasi{
+	height: 5vh;
+}
+
+.col.terdanai{
+	text-align: left;
+}
+
+.col.kekurangan{
+	text-align: right;
+}
+
+.nominal-terdanai{
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 2px;
+	color: #575157;
+}
+
+.text-terdanai{
+	font-size: 12px;
+	color: #8f8f8f;
+}
+
+.nominal-kekurangan{
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 2px;
+	color: #575157;
+}
+
+.text-kekurangan{
+	font-size: 12px;
+	color: #8f8f8f;
+}
+
+footer{
+	background-color: #525d63;
+}
+
+.col-4.footer{
+	padding: 30px;
+}
+
+.text-footer{
+	font-size: 14px;
+	color: white;
+}
+
+.media-sosial-whatsapp{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #069c3f;
+	color: white;
+}
+
+.media-sosial-whatsapp:hover{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #06652a;
+	color: white;
+	transition: 1s
+}
+
+
+.media-sosial-facebook{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #106ac7;
+	color: white;
+}
+
+.media-sosial-facebook:hover{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #0a4888;
+	color: white;
+	transition: 1s
+}
+
+.media-sosial-instagram{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #d72d41;
+	color: white;
+}
+
+.media-sosial-instagram:hover{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #8a1d2a;
+	color: white;
+	transition: 1s
+}
+
+.media-sosial-youtube{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #b90016;
+	color: white;
+}
+
+.media-sosial-youtube:hover{
+	padding: 20px;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #7b0211;
+	color: white;
+	transition: 1s
+}
+
+.far.fa-envelope{
+	color: white;
+}
+

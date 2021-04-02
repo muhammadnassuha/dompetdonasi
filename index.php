@@ -1,4 +1,4 @@
-   <?php
+<?php
 
 require 'function.php';
 // looping campaign desktop
@@ -63,7 +63,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
                     <a class="nav-link active" aria-current="page" href="#">Donasi Rutin</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Zakat</a>
+                    <a class="nav-link" href="https://dompetdonasi.com/login_user/zakat/">Zakat</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Wakaf</a>
@@ -99,7 +99,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
             <div class="row row-3">
               <div class="col-4">
                   <?php
-                      $data = mysqli_query($conn, "SELECT * FROM `campaign`  ORDER BY `id` DESC");
+                      $data = mysqli_query($conn, "SELECT * FROM `campaign` WHERE konfirmasi = 'OK'  ORDER BY `id` DESC");
                      $hasil = mysqli_num_rows($data);
                   ?>
                 <h2 class="text-data"><?php echo $hasil ?></h2>
@@ -180,8 +180,20 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
                             <div class="judul-campaign">
                               <p><?php echo $data["judul"]; ?></p>
                             </div>
-                            <div class="penggalangan-dana">
-                              <p>Oleh <?php echo $data["nama"]; ?></p>
+                            <div class="nama">
+                              <div class="row row-cols-2">
+                                <div class="col">
+                                  <div class="penggalangan-dana">
+                                    <p>Oleh <?php echo $data["nama"]; ?></p>
+                                  </div>
+                                </div>
+
+                                <div class="col">
+                                  <div class="sisa-hari">
+                                    <p><?php echo $sisa->days; ?> Hari Lagi</p>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                             <div class="progress">
                               <div class="progress-bar" role="progressbar" style="width: <?php echo $persen; ?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -210,7 +222,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
 
           <!-- selengkapnya -->
           <div class="selengkapnya" style="text-align: center; margin: 20px 0;">
-            <a href="selengkapnya" class="btn btn-selengkapnya">Lihat Selengkapnya</a>
+            <a href="all_campaign/" class="btn btn-selengkapnya">Lihat Selengkapnya</a>
           </div>
 
         </div>
@@ -224,7 +236,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
             <div class="container" style="width: 60%; padding:20px;">
               <div class="mengapa-donasi">
                 <h2 class="first-text-mengapa-donasi">Mengapa donasi lewat Dompetdonasi.com ?</h2>
-                <p class="first-text-mengapa-donasi">Dompetdonasi.com memudahkan Anda dalam melakukan donasi online dan penggalangan dana untuk orang yang membutuhkan, namun mengapa harus Dompetyatimamanah.com?</p>
+                <p class="first-text-mengapa-donasi">Dompetdonasi.com memudahkan Anda dalam melakukan donasi online dan penggalangan dana untuk orang yang membutuhkan, namun mengapa harus Dompetdonasi.com?</p>
     
     
                 <div class="row row-3">
@@ -240,7 +252,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
                   </div>
                   <div class="col-4">
                     <img src="img/icon/update-01.png" width="100%">
-                    <h5 class="text-mengapa-donasi">Update Pasien</h5>
+                    <h5 class="text-mengapa-donasi">Update</h5>
                     <p class="text-mengapa-donasi">Dompetdonasi.com akan memberikan update mengenai keadaan pasien setelah menerima penanganan medis secara berkala kepada donatur.</p>
                   </div>
                 </div>
@@ -305,7 +317,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
                     <a class="nav-link active" aria-current="page" href="#">Donasi Rutin</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Zakat</a>
+                    <a class="nav-link" href="https://dompetdonasi.com/login_user/zakat/">Zakat</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Wakaf</a>
@@ -328,7 +340,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
                     <p class="text-footer-fixed-hp"><a href="https://dompetdonasi.com/index" class="link-text-footer" style="color:#35a04c;"><i class="fas fa-home"style="color:#35a04c;"></i><br>Home</a></p>
                   </div>
                   <div class="col-3">
-                      <p class="text-footer-fixed-hp"><a href="selengkapnya" class="link-text-footer"><i class="fas fa-hand-holding-heart"></i><br>Donasi</a></p>
+                      <p class="text-footer-fixed-hp"><a href="all_campaign/" class="link-text-footer"><i class="fas fa-hand-holding-heart"></i><br>Donasi</a></p>
                   </div>
                   <div class="col-3">
                       <p class="text-footer-fixed-hp"><a href="user/login.php" class="link-text-footer"><i class="fas fa-plus-circle"></i><br>Campaign</a></p>
@@ -363,7 +375,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
                 <p class="campaign-pilihan-hp">Campaign Pilihan</p>
               </div>
               <div class="col-6">
-                <p style="text-align:right;"><a href="selengkapnya" class="btn btn lihat-selengkapnya-hp" style="margin-left:5px;">Lihat Selengkapnya <i class="fas fa-angle-right" style="color:#299c42;"></i></a></p>
+                <p style="text-align:right;"><a href="all_campaign/" class="btn btn lihat-selengkapnya-hp" style="margin-left:5px;">Lihat Selengkapnya <i class="fas fa-angle-right" style="color:#299c42;"></i></a></p>
               </div>
             </div>    
             <ul class="hs">
@@ -434,13 +446,13 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img class="d-block w-100" src="img/slider/Zakat Online-01.jpg" alt="First slide">
+                  <img class="d-block w-100" src="img/slider/profesi.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="img/slider/Zakat Online-01.jpg" alt="Second slide">
+                  <img class="d-block w-100" src="img/slider/fitrah.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="img/slider/Zakat Online-01.jpg" alt="Third slide">
+                  <img class="d-block w-100" src="img/slider/profesi.jpg" alt="Third slide">
                 </div>
               </div>
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -540,7 +552,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
           
           <!-- selengkapnya -->
           <div class="selengkapnya-hp" style="text-align: center; margin: 20px 0;">
-            <a href="selengkapnya" class="btn btn-selengkapnya-hp">Lihat Selengkapnya</a>
+            <a href="all_campaign/" class="btn btn-selengkapnya-hp">Lihat Selengkapnya</a>
           </div>
           
             <!-- Konfirmasi Donasi-hp -->
@@ -550,7 +562,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
                 </div>
                 
               <div class="konfirmasi-hp" style="text-align: center; margin: 20px 0;">
-                <a href="bank/bank_konfirmasi.php" class="btn-konfirmasi-hp">Konfirmasi Donasi</a>
+                <a href="bank/bank_konfirmasi" class="btn-konfirmasi-hp">Konfirmasi Donasi</a>
               </div>
             </div>
           
@@ -559,7 +571,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
                 <div class="container" style="width: 90%; padding:20px;">
                   <div class="mengapa-donasi">
                     <h2 class="first-text-mengapa-donasi">Mengapa donasi lewat Dompetdonasi.com ?</h2>
-                    <p class="first-text-mengapa-donasi">Dompetdonasi.com memudahkan Anda dalam melakukan donasi online dan penggalangan dana untuk orang yang membutuhkan, namun mengapa harus Dompetyatimamanah.com?</p>
+                    <p class="first-text-mengapa-donasi">Dompetdonasi.com memudahkan Anda dalam melakukan donasi online dan penggalangan dana untuk orang yang membutuhkan, namun mengapa harus Dompetdonasi.com?</p>
         
         
                         <img src="img/icon/tepat-sasaran-01.png" width="100%">
@@ -571,7 +583,7 @@ $query5    = mysqli_query($conn, "SELECT * FROM `campaign`  WHERE konfirmasi = '
                         <p class="text-mengapa-donasi">Dompetdonasi.com sangat transparan dalam mengelola keuangan. Setiap transaksi dan distribusi donasi dapat dilihat melalui halaman transparansi.</p>
                         
                         <img src="img/icon/update-01.png" width="100%">
-                        <h5 class="text-mengapa-donasi">Update Pasien</h5>
+                        <h5 class="text-mengapa-donasi">Update</h5>
                         <p class="text-mengapa-donasi">Dompetdonasi.com akan memberikan update mengenai keadaan pasien setelah menerima penanganan medis secara berkala kepada donatur.</p>
                          <div class="scat3" style="height:8vh;">
                              

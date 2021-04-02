@@ -25,7 +25,6 @@ foreach ($allData as $key => $value) {
 	$dataReturn[$key][] = $value['nama_rek'];
 	$dataReturn[$key][] = $value['dibuat'];
 	$dataReturn[$key][] = $value['kode_unik'];
-	$dataReturn[$key][] = $value['jumlah_donasi	'];
     $dataReturn[$key][] = $value['keterangan'];
 	$no++;
 }

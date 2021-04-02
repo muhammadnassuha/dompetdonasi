@@ -5,6 +5,41 @@ $query   = mysqli_query($conn, "SELECT * FROM `zakat`  ORDER BY `id` DESC ");
 $total    = mysqli_num_rows($query);
 $total = $total['total'];
 
+
+if (isset($_POST["transfer"]) ) {
+
+      if(donasi_zakat($_POST) > 0 ) {
+        echo "<script>
+                alert('Harap di transfer dalam waktu 24jam');
+                document.location.href = '../bank_zakat/bank_konfirmasi';
+            </script>";
+
+    
+      } else {
+
+          echo mysqli_error($conn);
+
+      }
+
+  }
+
+
+  if (isset($_POST["transfer2"]) ) {
+
+      if(donasi_zakat2($_POST) > 0 ) {
+        echo "<script>
+                alert('Harap di transfer dalam waktu 24jam');
+                document.location.href = '../bank_zakat/bank_konfirmasi';
+            </script>";
+
+    
+      } else {
+
+          echo mysqli_error($conn);
+
+      }
+    }
+
 ?>
 
 
@@ -125,7 +160,7 @@ $total = $total['total'];
                 <?php } ?>
 
                   <hr>
-                  <form action="hasil" method="post" onsubmit="return validasi_input(this)" autocomplete="off">
+                  <form  method="post" onsubmit="return validasi_input(this)" autocomplete="off">
                     <label style="font-weight: 500; margin-bottom: 10px;" >Lengkapi Data Dibawah Ini <span style="color: red"> *</span></label>
                     <br>
                     <div class="input-group mb-3">

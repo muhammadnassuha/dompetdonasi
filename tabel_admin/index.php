@@ -49,7 +49,7 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
 <head>
         <meta charset="utf-8" />
         <title>Admin | <?php echo $_SESSION["username"]; ?> </title>
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
@@ -68,7 +68,6 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
         <!-- App Css-->
         <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        
 
     </head>
 
@@ -166,6 +165,12 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
                             <a href="pencairan-dana" class="waves-effect">
                             <i class="mdi mdi-cash-usd-outline"></i><span class="badge badge-pill badge-primary float-right"></span>
                             <span>Pencairan Dana</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="zakat" class="waves-effect">
+                            <i class="mdi mdi-cash-usd-outline"></i><span class="badge badge-pill badge-primary float-right"></span>
+                            <span>Zakat</span>
                             </a>
                         </li>
                         <li>
@@ -282,10 +287,10 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
                                 <div class="card">
                                     <div class="card-body">Transaksi Terakhir</h4>
                                         <div class="table-responsive">
-                                            <table id="example" class="table table-hover table-centered table-nowrap mb-0">
+                                            <table id="donasi" class="table table-hover table-centered table-nowrap mb-0">
                                                 <thead>
                                                     <tr>
-                                                       
+                                                        <th scope="col">Id</th>
                                                         <th scope="col">Nama</th>
                                                         <th scope="col">No. HP</th>
                                                         <th scope="col">Link</th>
@@ -309,8 +314,13 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
                                                         ?>
 
                                                         <tr>
-                                                           
-                                                            <td> <?php echo $data3["nama"]; ?> </td>
+                                                            <th scope="row"><?php echo $data3["id"]; ?></th>
+                                                            <td>
+                                                                <div>
+                                                                    <!-- <img src="assets/images/users/user-6.jpg" alt=""
+                                                                        class="avatar-xs rounded-circle mr-2"> --> <?php echo $data3["nama"]; ?>
+                                                                </div>
+                                                            </td>
                                                             <td><?php echo $data3["hp"]; ?></td>
                                                             <td><?php echo $data3["link"]; ?></td>
                                                             <td><?php echo $data3["doa"]; ?></td>
@@ -322,8 +332,11 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
                                                             <td>Rp. <?php echo $data3["jumlah_donasi"]; ?></td>
                                                             <td style="text-align: center;"><?php echo $data3["keterangan"]; ?></td>
                                                             
-                                                            <td><a href="https://dompetdonasi.com/admin/konfirmasi_donasi?id=<?php echo $data3["kode_unik"]; ?>&nama=<?php echo $data3["nama"]; ?>" class="btn btn-primary btn-sm">Edit</a></td>
-                                                             
+                                                            <td>
+                                                                <div>
+                                                                    <a href="https://dompetdonasi.com/admin/konfirmasi_donasi?id=<?php echo $data3["kode_unik"]; ?>&nama=<?php echo $data3["nama"]; ?>" class="btn btn-primary btn-sm">Edit</a>
+                                                                </div>
+                                                            </td>
                                                         </tr>
 
 
@@ -340,7 +353,7 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
                                 <div class="card bukti_resi">
                                     <div class="card-body" style="font-weight: bold;"> Bukti Transaksi Terakhir</h4>
                                         <div class="table-responsive">
-                                        <table  class="table table-hover table-centered table-nowrap mb-0">
+                                        <table class="table table-hover table-centered table-nowrap mb-0">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Id</th>
@@ -425,10 +438,8 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
         <!-- Plugin Js-->
         <script src="assets/libs/chartist/chartist.min.js"></script>
         <script src="assets/libs/chartist-plugin-tooltips/chartist-plugin-tooltip.min.js"></script>
-        <script src="//cdn.datatables.net/plug-ins/725b2a2115b/api/fnReloadAjax.js" defer></script>
 
         <script src="assets/js/pages/dashboard.init.js"></script>
-
 
         <script src="assets/js/app.js"></script>
           <script>
@@ -437,47 +448,45 @@ $query3 = mysqli_query($conn, "SELECT * FROM bukti_transfer ORDER BY `id` DESC "
           document.getElementById("modal01").style.display = "block";
         }
         </script>
-     
-
-      <script type="text/javascript">
-        $(document).ready(function(){
+         <!--<script type="text/javascript">-->
+         <!--   $(document).ready(function(){-->
             
-         var table = $('#example').DataTable({
-             "processing": true,
-             "serverSide": true,
-             "ajax": {
-                 "url": "localhost/tes/tabel_admin/ajax_donasi",
-                 "type": "POST",
-                 "data": { "page": "1", "show_per_page": "10" }
-             },
+         <!--       var table = $('#donasi').DataTable({-->
+         <!--           "processing": true,-->
+         <!--           "serverSide": true,-->
+         <!--           "ajax": {-->
+         <!--               "url": "https://dompetdonasi.com/tabel_admin/ajax_donasi",-->
+         <!--               "type": "POST",-->
+         <!--               "data": { "page": "1", "show_per_page": "10" }-->
+         <!--           },-->
         
-             columns: [
-                 { title: "no" },
-                 { title: "nama" },
-                 { title: "hp" },
-                 { title: "link" },
-                 { title: "doa" },
-                 { title: "donasi" },
-                 { title: "no_rek" },
-                 { title: "nama_rek" },
-                 { title: "dibuat" },
-                 { title: "kode_unik" },
-                 { title: "jumlah" },
-                 { title: "keterangan" }
+         <!--           columns: [-->
+         <!--               { title: "no" },-->
+         <!--               { title: "nama" },-->
+         <!--               { title: "hp" },-->
+         <!--               { title: "link" },-->
+         <!--               { title: "doa" },-->
+         <!--               { title: "donasi" },-->
+         <!--               { title: "no_rek" },-->
+         <!--               { title: "nama_rek" },-->
+         <!--               { title: "dibuat" },-->
+         <!--               { title: "kode_unik" },-->
+         <!--               { title: "keterangan" },-->
                           
                        
         
-                 ]
-             });
+         <!--           ]-->
+         <!--       });-->
         
-             setInterval(function() {
-                 console.log('jalan');
-                 table.ajax.reload();
-             }, 5000);
-         });
-         </script>
+         <!--       setInterval(function() {-->
+         <!--           console.log('jalan');-->
+         <!--           table.ajax.reload();-->
+         <!--       }, 5000);-->
+         <!--   });-->
+         <!--   </script>-->
 
     </body>
 
 
+<!-- Mirrored from themesbrand.com/veltrix/layouts/vertical/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Mar 2021 14:19:11 GMT -->
 </html>
